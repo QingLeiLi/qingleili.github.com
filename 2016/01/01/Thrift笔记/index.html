@@ -1,0 +1,843 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hello, World" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Thrift笔记Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hello, World">
+<meta property="og:url" content="http://yoursite.com/2016/01/01/Thrift笔记/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="Thrift笔记Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据">
+<meta property="og:updated_time" content="2015-12-24T09:02:56.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello, World">
+<meta name="twitter:description" content="Thrift笔记Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title>  | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-01-01T16:29:42+08:00" content="2016-01-01">
+              2016-01-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Thrift_u7B14_u8BB0"><a href="#Thrift_u7B14_u8BB0" class="headerlink" title="Thrift笔记"></a>Thrift笔记</h1><p>Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据量和多语言的环境更有优势。<br><a id="more"></a></p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<li>pip<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3></li>
+</ul>
+<ol>
+<li>在Thrift官网下载源码，<a href="http://thrift.apache.org/download" target="_blank" rel="external">下载地址</a></li>
+<li><p>解压源码，进行<code>./configure</code>，会生成make文件，并打印编译信息，在最后会有提示信息，笔者只有python环境，所以只检测到了python库</p>
+<pre><code>thrift 0.9.3
+
+Building C++ Library ......... : no
+Building C (GLib) Library .... : no
+Building Java Library ........ : no
+Building C# Library .......... : no
+Building Python Library ...... : yes
+Building Ruby Library ........ : no
+Building Haxe Library ........ : no
+Building Haskell Library ..... : no
+Building Perl Library ........ : no
+Building PHP Library ......... : no
+Building Erlang Library ...... : no
+Building Go Library .......... : no
+Building D Library ........... : no
+Building NodeJS Library ...... : no
+Building Lua Library ......... : no
+
+Python Library:
+   Using Python .............. : /usr/bin/python
+   Using Trial ............... : /usr/bin/trial
+
+If something is missing that you think should be present,
+please skim the output of configure to find the missing
+component.  Details are present in config.log.
+</code></pre></li>
+<li>编译，检查源码<code>make &amp;&amp; make check</code>，make check的时间会很长，大概进行了528项测试<code>Test run #528</code>，如果报错，根据具体情况分析</li>
+<li>安装thrift主体，<code>sudo make install</code></li>
+<li><p>检验thrift是否安装成功</p>
+<pre><code>$ thrift -version
+Thrift version 0.9.3
+</code></pre></li>
+<li><p>安装Python支持</p>
+<pre><code>sudo pip install thrift
+</code></pre></li>
+<li><p>检验python支持是否安装成功</p>
+<pre><code>$ python
+Python 2.7.3 (default, Jun 22 2015, 19:43:34) 
+[GCC 4.6.3] on linux2
+&gt;&gt;&gt; import thrift
+</code></pre><p>不报错就好了。</p>
+</li>
+</ol>
+<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><ul>
+<li><p>官网</p>
+<pre><code>http://thrift.apache.org/
+</code></pre></li>
+<li><p>概述</p>
+<ol>
+<li><p>支持的传输格式,负责数据编码</p>
+<pre><code>TBinaryProtocol   二进制格式
+TCompactProtocol  压缩格式,密集二进制编码
+TJSONProtocol     JSON格式
+TSimpleJSONProtocol 提供JSON只写协议，生成的文件很容易通过脚本语言解析
+TDebugProtocol     使用易懂的可读的文本格式以便于debug
+dir(thrift.protocol)
+    [&apos;TBase&apos;, &apos;TBinaryProtocol&apos;, &apos;TCompactProtocol&apos;, &apos;TJSONProtocol&apos;, &apos;TProtocol&apos;,  &apos;fastbinary&apos;]
+</code></pre></li>
+<li><p>支持的数据传输方式,负责数据传输</p>
+<pre><code>TSocket                采用TCP Socket进行数据传输,阻塞式socket
+THttpTransport        采用HTTP传输协议进行数据传输
+TFileTransport        文件（日志）传输类，以文件形式进行传输,允许client将文件传给server，允许server将收到的数据写到文件中
+TZlibTransport        使用zlib进行压缩,压缩后对数据进行传输，或者将收到的数据解压
+下面几个类主要是对上面几个类地装饰（采用了装饰模式），以提高传输效率。
+TBufferedTransport    对某个transport对象操作的数据进行buffer,即从buffer中读取数据进行传输，或将数据直接写入到buffer
+TFramedTransport    以frame为单位传输，非阻塞式服务中使用
+TMemoryBuffer        将内存用于I/0，从一个缓冲区中读写数据
+dir(thrift.transport)传输层
+    [&apos;THttpClient&apos;, &apos;TSocket&apos;, &apos;TTransport&apos;, &apos;TTwisted&apos;, &apos;TZlibTransport&apos;, ]
+dir(thrift.transport.TTransport)
+    [&apos;CReadableTransport&apos;, &apos;StringIO&apos;, &apos;TBufferedTransport&apos;, &apos;TBufferedTransportFactory&apos;, &apos;TException&apos;, 
+    &apos;TFileObjectTransport&apos;, &apos;TFramedTransport&apos;, &apos;TFramedTransportFactory&apos;, &apos;TMemoryBuffer&apos;, 
+    &apos;TSaslClientTransport&apos;, &apos;TServerTransportBase&apos;, &apos;TTransportBase&apos;, &apos;TTransportException&apos;, 
+    &apos;TTransportFactoryBase&apos;,]
+</code></pre></li>
+<li><p>支持的服务模型[主要是服务端类型]</p>
+<pre><code>TSimpleServer        简单的单线程服务模型，常用于测试
+TThreadedServer        多线程服务模型使用标准的阻塞式IO,每个请求创建一个线程
+TThreadPoolServer    多线程服务模型使用标准的阻塞式IO，预先创建一组线程处理请求
+TNonblockingServer    多线程服务模型使用非阻塞IO,TFramedTransport必须使用该类型的server
+dir(thrift.server)
+    [&apos;TNonblockingServer&apos;, &apos;TServer&apos;,]
+dir(thrift.server.TServer)
+    [&apos;Queue&apos;, &apos;TBinaryProtocol&apos;, &apos;TForkingServer&apos;, &apos;TProcessor&apos;, &apos;TServer&apos;, &apos;TSimpleServer&apos;, 
+    &apos;TThreadPoolServer&apos;, &apos;TThreadedServer&apos;, &apos;TTransport&apos;, &apos;logger&apos;, &apos;logging&apos;, &apos;os&apos;, &apos;sys&apos;, &apos;threading&apos;, 
+    &apos;traceback&apos;]
+dir(thrift.server.TNonblockingServer)
+[&apos;CLOSED&apos;, &apos;Connection&apos;, &apos;Queue&apos;, &apos;SEND_ANSWER&apos;, &apos;TBinaryProtocolFactory&apos;, &apos;TNonblockingServer&apos;, 
+&apos;TTransport&apos;, &apos;WAIT_LEN&apos;, &apos;WAIT_MESSAGE&apos;, &apos;WAIT_PROCESS&apos;, &apos;Worker&apos;, &apos;logger&apos;, &apos;logging&apos;, &apos;select&apos;, 
+&apos;socket&apos;, &apos;socket_exception&apos;, &apos;struct&apos;, &apos;threading&apos;]
+</code></pre></li>
+</ol>
+</li>
+<li><p>编译器生成的文件列表</p>
+<ul>
+<li><p>Python</p>
+<pre><code>constants.py: 包含声明的所有常量
+ttypes.py: 包含声明的struct，实现了具体的序列化和反序列化
+Hello.py ：对应service的描述文件，包含了：
+    Iface: service接口定义
+    Client: client的rpc调用桩
+    Processor: 处理service的具体方法调用，需要传入server端实现的handler
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><h3 id="u57FA_u672C_u4F7F_u7528"><a href="#u57FA_u672C_u4F7F_u7528" class="headerlink" title="基本使用"></a>基本使用</h3><ol>
+<li><p>书写thrift文件，该文件为接口的声明，是提供对外提供服务的接口，不在该文件中的函数是无法调用的</p>
+<pre><code>#Hello.thrift
+service Hello{ 
+    string hello(1:string para)
+}
+</code></pre><p>thrift文件由Thrift接口定义语言(IDL, Interface Definition Language)书写</p>
+</li>
+<li><p>使用thrift编译器编译thrift文件，生成gen-py文件夹（该文件夹生成在运行命令的路径下，而不是源码所在路径），文件夹内生成远程调用所需文件  </p>
+<pre><code>thrift --gen py Hello.thrift
+#生成java支持
+#thrift --gen java Hello.thrift
+</code></pre></li>
+<li><p>编写服务器端代码</p>
+<pre><code>#!/usr/bin/env python
+
+# 将gen-py加入环境变量，因为名字里有-，无法直接import
+import sys
+sys.path.append(&apos;./gen-py&apos;)
+
+# 引入接口
+from Hello import Hello
+
+# 引入thrift的socket和协议
+import thrift
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+from thrift.server import TServer
+
+# 实现接口
+class HelloHandler:
+    def __init__(self):
+        pass
+
+    def helloString(self,s):
+        print &quot;client:&quot; + s
+        return &quot;server:&quot; + s
+
+if __name__== &quot;__main__&quot;:
+    # 实现接口的类实例
+    handler = HelloHandler()
+    # 将实例作为处理器传给接口
+    processor = Hello.Processor(handler)
+
+    # 创建服务socket
+    transport = TSocket.TServerSocket(&apos;localhost&apos;, 30303)
+    # 创建传输层协议（缓存socket）
+    tfactory = TTransport.TBufferedTransportFactory()
+    # 创建数据传输形式（二进制）
+    pfactory = TBinaryProtocol.TBinaryProtocolFactory()
+
+    # 创建服务对象
+    server = TServer.TSimpleServer(processor, transport, tfactory, pfactory)
+
+    print &quot;Starting python server...&quot;
+    # 运行服务
+    server.serve()
+    print &quot;done!&quot;
+</code></pre></li>
+<li><p>编写客户端代码</p>
+<pre><code>#!/usr/bin/env python
+
+# 将gen-py加入环境变量，因为名字里有-，无法直接import
+import sys
+sys.path.append(&apos;./gen-py&apos;)
+
+# 引入接口
+from Hello import Hello
+
+# 引入thrift的socket和协议
+import thrift
+from thrift.transport import TSocket
+from thrift.transport import TTransport
+from thrift.protocol import TBinaryProtocol
+
+if __name__ == &apos;__main__&apos;:
+    try:
+        # 创建socket
+        transport = TSocket.TSocket(&apos;localhost&apos;, 30303)
+
+        # 使用缓存传输层包装
+        transport = TTransport.TBufferedTransport(transport)
+
+        # 使用二进制传输方式包装
+        protocol = TBinaryProtocol.TBinaryProtocol(transport)
+
+        # 使用创建的协议生成一个客户端
+        client = Hello.Client(protocol)
+
+        # 打开传输层连接
+        transport.open()
+        # 调用远程函数
+        print client.helloString(&quot;test&quot;)
+        print &quot;done&quot;
+
+        # 关闭传输层连接
+        transport.close()
+
+    except Thrift.TException, tx:
+        print &quot;%s&quot; % (tx.message)
+</code></pre></li>
+<li><p>运行程序</p>
+<pre><code>$ python server.py 
+Starting python server...
+client:test
+
+$ python client.py 
+server:test
+done
+</code></pre></li>
+</ol>
+<h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3><p>#### </p>
+<ol>
+<li></li>
+</ol>
+<h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
+<li>解决办法：</li>
+</ul>
+<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>thrift不支持无符号整型，因为很多目标语言不存在无符号整型（如java）。</li>
+</ul>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>概述：<a href="http://dongxicheng.org/search-engine/thrift-guide/" target="_blank" rel="external">http://dongxicheng.org/search-engine/thrift-guide/</a><br>C++例子：<a href="http://dongxicheng.org/search-engine/thrift-rpc/" target="_blank" rel="external">http://dongxicheng.org/search-engine/thrift-rpc/</a><br>总结：<a href="http://blog.csdn.net/chosen0ne/article/details/22735973" target="_blank" rel="external">http://blog.csdn.net/chosen0ne/article/details/22735973</a><br>总结，部分异步：<a href="http://blog.chinaunix.net/uid-20357359-id-2876170.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-20357359-id-2876170.html</a><br>IBM:<a href="http://www.ibm.com/developerworks/cn/java/j-lo-apachethrift/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/java/j-lo-apachethrift/</a><br><a href="http://blog.csdn.net/zlzlei/article/details/8500106" target="_blank" rel="external">http://blog.csdn.net/zlzlei/article/details/8500106</a><br><a href="http://www.douban.com/group/topic/40717269/" target="_blank" rel="external">http://www.douban.com/group/topic/40717269/</a><br>thrift-missing-guide：<a href="http://diwakergupta.github.io/thrift-missing-guide/" target="_blank" rel="external">http://diwakergupta.github.io/thrift-missing-guide/</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/12/24/Google Protocol Buffer笔记/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Thrift笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u4F7F_u7528"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
