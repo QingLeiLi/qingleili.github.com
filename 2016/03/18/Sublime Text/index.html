@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="hexo," />
+  <meta name="keywords" content="SublimeText," />
 
 
 
@@ -51,16 +51,16 @@
 
 
 
-<meta name="description" content="笔记">
+<meta name="description" content="Sublime Text使用Sublime Text的基本使用与常用插件安装。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="笔记">
-<meta property="og:url" content="http://yoursite.com/2016/03/11/模板/index.html">
+<meta property="og:title" content="Sublime Text使用">
+<meta property="og:url" content="http://yoursite.com/2016/03/18/Sublime Text/index.html">
 <meta property="og:site_name" content="Hello, World">
-<meta property="og:description" content="笔记">
-<meta property="og:updated_time" content="2016-03-11T06:51:05.968Z">
+<meta property="og:description" content="Sublime Text使用Sublime Text的基本使用与常用插件安装。">
+<meta property="og:updated_time" content="2016-03-18T10:16:49.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="笔记">
-<meta name="twitter:description" content="笔记">
+<meta name="twitter:title" content="Sublime Text使用">
+<meta name="twitter:description" content="Sublime Text使用Sublime Text的基本使用与常用插件安装。">
 
 
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title> 笔记 | Hello, World </title>
+  <title> Sublime Text使用 | Hello, World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -192,7 +192,7 @@
             
             
               
-                笔记
+                Sublime Text使用
               
             
           </h1>
@@ -201,8 +201,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-11T14:51:05+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2016-03-18T18:13:41+08:00" content="2016-03-18">
+              2016-03-18
             </time>
           </span>
 
@@ -225,25 +225,106 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u7B14_u8BB0"><a href="#u7B14_u8BB0" class="headerlink" title="笔记"></a>笔记</h1><a id="more"></a>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
-<li><h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3></li>
-</ul>
-<ol>
-<li><h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3></li>
+        <span itemprop="articleBody"><h1 id="Sublime_Text_u4F7F_u7528"><a href="#Sublime_Text_u4F7F_u7528" class="headerlink" title="Sublime Text使用"></a>Sublime Text使用</h1><p>Sublime Text的基本使用与常用插件安装。<br><a id="more"></a></p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>在线安装<br>Ubuntu可以使用apt-get安装</p>
+<pre><code>sudo add-apt-repository ppa:webupd8team/sublime-text-2 
+sudo apt-get update
+sudo apt-get install sublime-text-dev
+sudo apt-get install sublime-text
+</code></pre></li>
+<li>离线安装<ol>
+<li>下载对应平台安装包(<a href="http://www.sublimetext.com/2" target="_blank" rel="external">Sublime Text 2</a>,<a href="http://www.sublimetext.com/3" target="_blank" rel="external">Sublime Text 3</a>,)</li>
+<li>双击或使用Ubuntu软件中心安装</li>
 </ol>
+</li>
+<li><p>注册码  </p>
+<pre><code>----- BEGIN LICENSE -----
+Andrew Weber
+Single User License
+EA7E-855605
+813A03DD 5E4AD9E6 6C0EEB94 BC99798F
+942194A6 02396E98 E62C9979 4BB979FE
+91424C9D A45400BF F6747D88 2FB88078
+90F5CC94 1CDC92DC 8457107A F151657B
+1D22E383 A997F016 42397640 33F41CFC
+E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D
+5CDB7036 E56DE1C0 EFCC0840 650CD3A6
+B98FC99C 8FAC73EE D2B95564 DF450523
+------ END LICENSE ------
+</code></pre></li>
+</ul>
+<h2 id="u57FA_u672C_u4F7F_u7528"><a href="#u57FA_u672C_u4F7F_u7528" class="headerlink" title="基本使用"></a>基本使用</h2><ul>
+<li>自动完成：自动完成的快捷键是Tab，如果在html文件中，输入cl按下tab，即可自动补全为class=””；</li>
+<li>多列编辑：按住ctrl点击鼠标，会出现多个闪烁的光标，这时可同时修改多处或者按住鼠标中键拖拽；</li>
+<li>代码注释功能：ctrl+/、ctrl+shift+/分别为行注释和块注释，再按一下就能去掉注释；</li>
+<li>行操作：ctrl+alt+↑、ctrl+alt+↓向上或者向下交换一行；ctrl+enter，光标所在行后插入空行，ctrl+d选择相似；</li>
+</ul>
+<h2 id="u63D2_u4EF6_u5B89_u88C5"><a href="#u63D2_u4EF6_u5B89_u88C5" class="headerlink" title="插件安装"></a>插件安装</h2><ul>
+<li><p><a href="https://packagecontrol.io/installation" target="_blank" rel="external">Package Control - 包管理组件</a><br>使用Package Control可以很方便的安装其他插件。</p>
 <ul>
-<li><h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><h3 id="u57FA_u672C_u547D_u4EE4"><a href="#u57FA_u672C_u547D_u4EE4" class="headerlink" title="基本命令"></a>基本命令</h3></li>
-<li></li>
-</ul>
-<h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3><p>#### </p>
+<li><p>在线安装<br>使用快捷键`ctrl + ``打开终端;在命令行中输入以下代码来安装Package Control, 等待其自动下载安装；重启Sublime Text</p>
+<pre><code>#Sublime Text 3
+import urllib2,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), &apos;wb&apos; ).write(by) if dh == h else None; print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h) if dh != h else &apos;Please restart Sublime Text to finish installation&apos;)
+
+#Sublime Text 3
+import urllib.request,os,hashlib; h = &apos;2915d1851351e5ee549c20394736b442&apos; + &apos;8bc59f460fa1548d1514676163dafc88&apos;; pf = &apos;Package Control.sublime-package&apos;; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( &apos;http://packagecontrol.io/&apos; + pf.replace(&apos; &apos;, &apos;%20&apos;)).read(); dh = hashlib.sha256(by).hexdigest(); print(&apos;Error validating download (got %s instead of %s), please try manual install&apos; % (dh, h)) if dh != h else open(os.path.join( ipp, pf), &apos;wb&apos; ).write(by)
+</code></pre></li>
+<li><p>离线安装<br>下载<a href="https://packagecontrol.io/Package%20Control.sublime-package" target="_blank" rel="external">Package Control.sublime-package</a>离线安装包，将其放入<code>Sublime Text/Data/Installed Packages</code>目录，重启Sublime Text</p>
+</li>
+<li><p>用Package Control安装插件的方法</p>
 <ol>
-<li></li>
+<li>按下Ctrl+Shift+P调出命令面板<ol>
+<li>输入install 调出 Install Package 选项并回车，然后在列表中选中要安装的插件，回车安装。</li>
 </ol>
-<h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li>解决办法：</li>
+</li>
+</ol>
+</li>
+<li><p>常用命令<br>  Disable Package ：禁用插件<br>  enable Package ：启用插件<br>  Install Package ：安装插件<br>  List Package ：查看已安装插件列表<br>  Remove Package ：移除插件<br>  Upgrade Package ：升级插件</p>
+</li>
 </ul>
-<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2></span>
+</li>
+<li><p><a href="http://emmet.io/" target="_blank" rel="external">Emmet（Zen Coding）插件</a><br>Emmet插件是一款快速编写HTML代码的工具，使用类CSS语法来缩短代码长度。</p>
+<ul>
+<li><p>基本语法（Emmet很多功能在Sublime中不支持）<br>div#id.class1.class2 : 设置div的id和class<br>div &gt; child#childId : 设置子元素<br>div#div1 + div#div2 : 设置同级元素<br>div#id$*3 : 设置三个div，id依次为id1，id2，id3<br>a[href=”javascript:void(0);”]{Links} ：设置属性和文本（<a href="”javascript:void(0);”">Links</a>）</p>
+</li>
+<li><p>快捷键<br>ctrl + alt + enter :调出Emmet命令行，输入的语句实时展现<br>tab ： 在html中输入emmet语法后，展开语法</p>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li>Emmet需要pyV8，插件加载时会自动安装，但因为服务器在国外，经常安装失败，可以离线安装<ol>
+<li>下载<a href="https://github.com/emmetio/pyv8-binaries" target="_blank" rel="external">pyV8</a>对应版本，32bit还是64bit取决于Sublime，而不是操作系统</li>
+<li>解压文件，若是Windows平台则创建文件目录<code>Sublime Text/Data/Packages/PyV8/win32</code>,将解压的文件放入</li>
+<li>重启Sublime</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a href="https://packagecontrol.io/packages/JsFormat" target="_blank" rel="external">JsFormat插件（Format: Javascript）</a><br>JsFormat是一个格式化JS代码的插件，但由于其JSON原生，所以可以用来格式化JSON和其他代码。</p>
+<ul>
+<li>快捷键<br>ctrl + alt + F ： 格式化选中代码</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/kairyou/SublimeTmpl" target="_blank" rel="external">SublimeTmpl插件</a><br>SublimeTmpl插件是新建文件的模板插件，根据文件后缀名自动写入对应模板内容。</p>
+<ul>
+<li>自定义模板<br>模板文件在<code>/SublimeTmpl/templates</code>中，以后缀名命名，修改对应tmpl文件即可。</li>
+<li>快捷键<br>ctrl+alt+h ：　新建html文件<br>ctrl+alt+j ：　新建javascript文件<br>ctrl+alt+c ：　新建css文件<br>ctrl+alt+p ：　新建php文件<br>ctrl+alt+r ： 新建ruby文件<br>ctrl+alt++shift+p 新建python文件 </li>
+</ul>
+</li>
+</ul>
+<h2 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>ctrl + shift + P ：打开控制面板</li>
+<li>ctrl + ` ：打开终端</li>
+<li>离线安装通用方法<ol>
+<li>下载插件源代码(<a href="https://packagecontrol.i" target="_blank" rel="external">https://packagecontrol.i</a>)</li>
+<li>解压源代码放入插件目录(<code>Sublime Text/Data/Packages</code>)</li>
+<li>重启Sublime Text</li>
+</ol>
+</li>
+</ul>
+</span>
       
     </div>
 
@@ -251,7 +332,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag">#hexo</a>
+            <a href="/tags/SublimeText/" rel="tag">#SublimeText</a>
           
         </div>
       
@@ -260,17 +341,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/08/Expect笔记/" rel="next" title="expect笔记">
-                <i class="fa fa-chevron-left"></i> expect笔记
+              <a href="/2016/03/16/apache2/" rel="next" title="Apache2笔记">
+                <i class="fa fa-chevron-left"></i> Apache2笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/11/nginx/" rel="prev" title="Nginx笔记">
-                Nginx笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -338,7 +415,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -352,7 +429,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -384,7 +461,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Sublime_Text_u4F7F_u7528"><span class="nav-number">1.</span> <span class="nav-text">Sublime Text使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u57FA_u672C_u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63D2_u4EF6_u5B89_u88C5"><span class="nav-number">1.3.</span> <span class="nav-text">插件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

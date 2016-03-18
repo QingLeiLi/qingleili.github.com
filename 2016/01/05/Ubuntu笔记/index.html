@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/05/Ubuntu笔记/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Ubuntu笔记杂记。">
-<meta property="og:updated_time" content="2016-03-16T12:47:22.977Z">
+<meta property="og:updated_time" content="2016-03-18T10:19:53.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu笔记">
 <meta name="twitter:description" content="Ubuntu笔记杂记。">
@@ -227,19 +227,16 @@
       
         <span itemprop="articleBody"><h1 id="Ubuntu_u7B14_u8BB0"><a href="#Ubuntu_u7B14_u8BB0" class="headerlink" title="Ubuntu笔记"></a>Ubuntu笔记</h1><p>杂记。<br><a id="more"></a></p>
 <h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li>apt-get遇到公钥错误  </li>
-</ul>
+<li><p>apt-get遇到公钥错误  </p>
 <blockquote>
 <p>W: GPG error: <a href="http://http.debian.net" target="_blank" rel="external">http://http.debian.net</a> jessie-backports InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 8B48AD6246925553  </p>
 </blockquote>
-<p><strong>解决办法：</strong>运行命令</p>
-<pre><code>gpg --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553
-gpg --export --armor &quot;8B48AD6246925553&quot; | apt-key add -
-</code></pre><ul>
-<li><p>apt-get遇到依赖问题<br><strong>解决办法</strong>：安装aptitude，与apt-get一样，但是其在处理依赖方面会好一些，可以提供多套解决方案。</p>
+<p>  <strong>解决办法：</strong>运行命令</p>
+<p>  gpg –keyserver keyserver.ubuntu.com –recv-keys 8B48AD6246925553<br>  gpg –export –armor “8B48AD6246925553” | apt-key add -</p>
+</li>
+<li><p>apt-get遇到依赖问题<br>  <strong>解决办法</strong>：安装aptitude，与apt-get一样，但是其在处理依赖方面会好一些，可以提供多套解决方案。</p>
 <pre><code>sudo apt-get install aptitude
-</code></pre><h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2></li>
-<li></li>
+</code></pre></li>
 </ul>
 </span>
       
@@ -336,7 +333,7 @@ gpg --export --armor &quot;8B48AD6246925553&quot; | apt-key add -
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -350,7 +347,7 @@ gpg --export --armor &quot;8B48AD6246925553&quot; | apt-key add -
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -382,7 +379,7 @@ gpg --export --armor &quot;8B48AD6246925553&quot; | apt-key add -
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.1.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.2.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.1.</span> <span class="nav-text">错误汇总</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

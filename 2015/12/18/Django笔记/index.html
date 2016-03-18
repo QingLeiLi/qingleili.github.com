@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/18/Django笔记/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Django笔记Django是Python的一个web快速开发框架，也是我接触的第一个web框架，开发快，封装功能较多，安全性较好。">
-<meta property="og:updated_time" content="2015-12-18T12:45:19.704Z">
+<meta property="og:updated_time" content="2016-03-18T09:49:47.114Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Django笔记">
 <meta name="twitter:description" content="Django笔记Django是Python的一个web快速开发框架，也是我接触的第一个web框架，开发快，封装功能较多，安全性较好。">
@@ -241,28 +241,27 @@
 </code></pre></li>
 </ul>
 <h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li><p>Ajax提交设置<code>type:POST</code>，Django后台<code>request.method</code>仍为GET<br><strong>原因：</strong>urls.py设置路由时，url后面多加了一个/  </p>
+<li><p>Ajax提交设置<code>type:POST</code>，Django后台<code>request.method</code>仍为GET<br>  <strong>原因：</strong>urls.py设置路由时，url后面多加了一个/  </p>
 <pre><code>urlpatterns = patterns(&apos;&apos;,
     url(r&apos;^ajax/$&apos;,ajax),
 )
-</code></pre><p><strong>解决办法：</strong>将最后一个斜杠去掉</p>
+</code></pre><p>  <strong>解决办法：</strong>将最后一个斜杠去掉</p>
 <pre><code>urlpatterns = patterns(&apos;&apos;,
     url(r&apos;^ajax$&apos;,ajax),
 )
 </code></pre></li>
-<li><p>表单POST提交403错误<br><strong>原因：</strong>Django出于安全考虑，默认对POST的表单进行CSRF token校验，表单中没有token信息，就会禁止提交<br><strong>解决办法：</strong>在处理函数上添加修饰器，忽略掉该表单的CSRF验证</p>
+<li><p>表单POST提交403错误<br>  <strong>原因：</strong>Django出于安全考虑，默认对POST的表单进行CSRF token校验，表单中没有token信息，就会禁止提交<br>  <strong>解决办法：</strong>在处理函数上添加修饰器，忽略掉该表单的CSRF验证</p>
 <pre><code>from django.views.decorators.csrf import csrf_exempt
 
 @csrf_exempt
 def ajax(request):
     pass
 </code></pre></li>
-<li><p>服务器返回json数据，500错误<br><strong>解决办法：</strong>序列化json，封装为HTTP response，并指定数据格式</p>
+<li><p>服务器返回json数据，500错误<br>  <strong>解决办法：</strong>序列化json，封装为HTTP response，并指定数据格式</p>
 <pre><code>import json
 j = json.dumps({&quot;data&quot;:&quot;ok&quot;})
 return HttpResponse(j, &apos;application/json&apos;)
-</code></pre><h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2></li>
-<li></li>
+</code></pre></li>
 </ul>
 </span>
       
@@ -289,8 +288,8 @@ return HttpResponse(j, &apos;application/json&apos;)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/18/Web杂记/" rel="prev" title="Django笔记">
-                Django笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/18/Web杂记/" rel="prev" title="Web杂记">
+                Web杂记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -359,7 +358,7 @@ return HttpResponse(j, &apos;application/json&apos;)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -373,7 +372,7 @@ return HttpResponse(j, &apos;application/json&apos;)
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -405,7 +404,7 @@ return HttpResponse(j, &apos;application/json&apos;)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Django笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Django_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Django笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

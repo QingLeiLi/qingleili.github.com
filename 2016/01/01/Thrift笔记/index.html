@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2016/01/01/Thrift笔记/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Thrift笔记Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据">
-<meta property="og:updated_time" content="2016-01-01T08:37:59.461Z">
+<meta property="og:updated_time" content="2016-03-18T10:19:33.164Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Thrift笔记">
 <meta name="twitter:description" content="Thrift笔记Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据">
@@ -227,9 +227,9 @@
       
         <span itemprop="articleBody"><h1 id="Thrift_u7B14_u8BB0"><a href="#Thrift_u7B14_u8BB0" class="headerlink" title="Thrift笔记"></a>Thrift笔记</h1><p>Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据量和多语言的环境更有优势。<br><a id="more"></a></p>
 <h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
-<li>pip<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3></li>
+<li>pip</li>
 </ul>
-<ol>
+<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3><ol>
 <li>在Thrift官网下载源码，<a href="http://thrift.apache.org/download" target="_blank" rel="external">下载地址</a></li>
 <li><p>解压源码，进行<code>./configure</code>，会生成make文件，并打印编译信息，在最后会有提示信息，笔者只有python环境，所以只检测到了python库</p>
 <pre><code>thrift 0.9.3
@@ -450,17 +450,19 @@ server:test
 done
 </code></pre></li>
 </ol>
-<h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3><p>#### </p>
-<ol>
-<li></li>
-</ol>
-<h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li>解决办法：</li>
-</ul>
 <h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
 <li>thrift不支持无符号整型，因为很多目标语言不存在无符号整型（如java）。</li>
 </ul>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p>概述：<a href="http://dongxicheng.org/search-engine/thrift-guide/" target="_blank" rel="external">http://dongxicheng.org/search-engine/thrift-guide/</a><br>C++例子：<a href="http://dongxicheng.org/search-engine/thrift-rpc/" target="_blank" rel="external">http://dongxicheng.org/search-engine/thrift-rpc/</a><br>总结：<a href="http://blog.csdn.net/chosen0ne/article/details/22735973" target="_blank" rel="external">http://blog.csdn.net/chosen0ne/article/details/22735973</a><br>总结，部分异步：<a href="http://blog.chinaunix.net/uid-20357359-id-2876170.html" target="_blank" rel="external">http://blog.chinaunix.net/uid-20357359-id-2876170.html</a><br>IBM:<a href="http://www.ibm.com/developerworks/cn/java/j-lo-apachethrift/" target="_blank" rel="external">http://www.ibm.com/developerworks/cn/java/j-lo-apachethrift/</a><br><a href="http://blog.csdn.net/zlzlei/article/details/8500106" target="_blank" rel="external">http://blog.csdn.net/zlzlei/article/details/8500106</a><br><a href="http://www.douban.com/group/topic/40717269/" target="_blank" rel="external">http://www.douban.com/group/topic/40717269/</a><br>thrift-missing-guide：<a href="http://diwakergupta.github.io/thrift-missing-guide/" target="_blank" rel="external">http://diwakergupta.github.io/thrift-missing-guide/</a></p>
+<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://dongxicheng.org/search-engine/thrift-guide/" target="_blank" rel="external">概述</a></li>
+<li><a href="http://dongxicheng.org/search-engine/thrift-rpc/" target="_blank" rel="external">C++例子</a></li>
+<li><a href="http://blog.csdn.net/chosen0ne/article/details/22735973" target="_blank" rel="external">总结</a></li>
+<li><a href="http://blog.chinaunix.net/uid-20357359-id-2876170.html" target="_blank" rel="external">总结，部分异步</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/java/j-lo-apachethrift/" target="_blank" rel="external">IBM</a></li>
+<li><a href="http://blog.csdn.net/zlzlei/article/details/8500106" target="_blank" rel="external">http://blog.csdn.net/zlzlei/article/details/8500106</a></li>
+<li><a href="http://www.douban.com/group/topic/40717269/" target="_blank" rel="external">http://www.douban.com/group/topic/40717269/</a></li>
+<li><a href="http://diwakergupta.github.io/thrift-missing-guide/" target="_blank" rel="external">thrift-missing-guide</a></li>
+</ul>
 </span>
       
     </div>
@@ -478,8 +480,8 @@ done
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/29/GRpc笔记/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2015/12/18/Zmq笔记/" rel="next" title="Zmq，PuZmq笔记">
+                <i class="fa fa-chevron-left"></i> Zmq，PuZmq笔记
               </a>
             
           </div>
@@ -556,7 +558,7 @@ done
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -570,7 +572,7 @@ done
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -602,7 +604,7 @@ done
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Thrift笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u4F7F_u7528"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Thrift_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Thrift笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u4F7F_u7528"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.3.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

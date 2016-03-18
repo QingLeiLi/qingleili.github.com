@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/12/pythonXlwt（Excel文件的创建与修改）/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Xlwt笔记Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，参考。">
-<meta property="og:updated_time" content="2016-03-12T11:38:01.048Z">
+<meta property="og:updated_time" content="2016-03-18T10:11:11.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Xlwt笔记(读写Excel文件)">
 <meta name="twitter:description" content="Xlwt笔记Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，参考。">
@@ -283,12 +283,13 @@ for row in range(0,10):
 book.save(&quot;test.xls&quot;)
 print(&quot;Done&quot;)
 </code></pre><h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li>Windows下没有问题，移植到Ubuntu时发生字符转码错误  <blockquote>
+<li><p>Windows下没有问题，移植到Ubuntu时发生字符转码错误  </p>
+<blockquote>
 <p>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xe8 in position 0: ordinal not in range(128)</p>
 </blockquote>
+<p>  <strong>解决办法：</strong>在新建Excel对象时指定编码<code>book = xlwt.Workbook(encoding = &#39;utf8&#39;)</code>就可以了</p>
 </li>
 </ul>
-<p><strong>解决办法：</strong>在新建Excel对象时指定编码<code>book = xlwt.Workbook(encoding = &#39;utf8&#39;)</code>就可以了</p>
 </span>
       
     </div>
@@ -318,8 +319,8 @@ print(&quot;Done&quot;)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/18/jquery笔记/" rel="prev" title="Jquery笔记">
-                Jquery笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/12/pythonWin32com/" rel="prev" title="Python Win32com笔记">
+                Python Win32com笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -388,7 +389,7 @@ print(&quot;Done&quot;)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -402,7 +403,7 @@ print(&quot;Done&quot;)
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
