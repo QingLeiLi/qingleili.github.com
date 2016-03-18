@@ -1,0 +1,832 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="apache," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Apache2笔记Apache作为Web Server三巨头之一，占有很大的市场份额，对于动态内容的解析支持很好，一般与nginx搭配使用。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Apache2笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/16/apache2/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="Apache2笔记Apache作为Web Server三巨头之一，占有很大的市场份额，对于动态内容的解析支持很好，一般与nginx搭配使用。">
+<meta property="og:updated_time" content="2016-03-18T04:22:56.542Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apache2笔记">
+<meta name="twitter:description" content="Apache2笔记Apache作为Web Server三巨头之一，占有很大的市场份额，对于动态内容的解析支持很好，一般与nginx搭配使用。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Apache2笔记 | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Apache2笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-03-16T11:45:44+08:00" content="2016-03-16">
+              2016-03-16
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Apache2_u7B14_u8BB0"><a href="#Apache2_u7B14_u8BB0" class="headerlink" title="Apache2笔记"></a>Apache2笔记</h1><p>Apache作为Web Server三巨头之一，占有很大的市场份额，对于动态内容的解析支持很好，一般与nginx搭配使用。<br><a id="more"></a></p>
+<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<li>无<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3></li>
+<li><p>Ubuntu</p>
+<ol>
+<li><p>使用<code>apt-get</code>直接安装</p>
+<pre><code>sudo apt-get install apache2
+</code></pre></li>
+<li>安装完成后访问<code>127.0.0.1</code>会得到<code>It works!</code>则安装成功<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3></li>
+</ol>
+</li>
+<li>available与enabled<br>在Apache2中，mod(功能模块)和site(虚拟主机)的配置都有两个目录，一个是available，一个是enabled，available目录是存放真正的配置内容，但Apache启动的时候只会加载enabled中存在的配置，所以只有在enabled中建立指向available的软连接才可以使功能模块或虚拟主机的配置生效；Apache命令<code>a2enmod</code>和<code>a2ensite</code>就是在available中查找相关配置然后在enabled中建立软连接使其生效。</li>
+<li><p>加载功能模块<br>Apache加载的功能模块分为两部分</p>
+<ol>
+<li><p>编译在内核中的模块，查看命令</p>
+<pre><code>apachectl -l  
+</code></pre></li>
+<li><p>配置加载的其他模块，即mods-enabled目录下所有模块</p>
+<pre><code>ls /etc/apache2/mods-enabled
+</code></pre><h3 id="u914D_u7F6E_u6587_u4EF6"><a href="#u914D_u7F6E_u6587_u4EF6" class="headerlink" title="配置文件"></a>配置文件</h3></li>
+</ol>
+</li>
+<li>/etc/apache2/envvars<br>保存了配置文件中使用的各种变量</li>
+<li>/etc/apache2/apache2.conf<br>Apache的主配置文件，设置了大部分全局属性，也可以设置虚拟主机等配置，但虚拟主机配置尽量到site-available中设置</li>
+<li><h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><h3 id="u57FA_u672C_u547D_u4EE4"><a href="#u57FA_u672C_u547D_u4EE4" class="headerlink" title="基本命令"></a>基本命令</h3></li>
+<li>apachectl -v<br>查看版本相关信息</li>
+<li>apachectl start(service apache2 start)<br>启动服务</li>
+<li>apachectl stop(service apache2 stop)<br>关闭服务</li>
+<li>apachectl restart(service apache2 restart)<br>重启服务</li>
+<li>apache2ctl configtest(apache2ctl -t)<br>检查配置文件</li>
+<li>service apache2 reload<br>重新加载站点</li>
+<li>a2enmod，a2dismod<br>启用和关闭模块</li>
+<li>a2ensite，a2dissite<br>启用和关闭虚拟主机<h3 id="u5176_u4ED6-1"><a href="#u5176_u4ED6-1" class="headerlink" title="其他"></a>其他</h3></li>
+<li><p>查看加载的所有模块</p>
+<pre><code>apachectl -M
+</code></pre></li>
+</ul>
+<h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3><h4 id="u642D_u5EFAgit_u670D_u52A1_u5668"><a href="#u642D_u5EFAgit_u670D_u52A1_u5668" class="headerlink" title="搭建git服务器"></a>搭建git服务器</h4><ol>
+<li><p>确保安装<code>git</code>和<code>Apache</code>，没有的话安装</p>
+<pre><code>sudo apt-get install git-core
+sudo apt-get install apache2
+</code></pre></li>
+<li><p>配置Apache虚拟主机，在site-available创建新文件<code>git</code>，并配置虚拟主机</p>
+<ul>
+<li><p>读写仓库都不需要验证身份</p>
+<pre><code>&lt;VirtualHost *:80&gt;
+    # 你的域名或IP
+    ServerName 127.0.0.1
+    # 配置仓库根目录
+    SetEnv GIT_PROJECT_ROOT /var/www/repo
+    # 可以设置为任意值
+    SetEnv GIT_HTTP_EXPORT_ALL 1
+    SetEnv REMOTE_USER=$REDIRECT_REMOTE_USER
+    # 将/git的请求转发到git-http-backend处理
+    ScriptAlias /git /usr/lib/git-core/git-http-backend/
+    # 配置目录权限
+    &lt;Directory &quot;/usr/lib/git-core*&quot;&gt;
+       Options ExecCGI Indexes
+       Order allow,deny
+       Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre></li>
+</ul>
+</li>
+</ol>
+<pre><code>* 读仓库不需要验证身份,写仓库需要
+
+        &lt;VirtualHost *:80&gt;
+            # 你的域名或IP
+            ServerName 127.0.0.1
+            # 配置仓库根目录
+            SetEnv GIT_PROJECT_ROOT /var/www/repo
+            # 可以设置为任意值
+            SetEnv GIT_HTTP_EXPORT_ALL 1
+            SetEnv REMOTE_USER=$REDIRECT_REMOTE_USER
+            # 将/git的请求转发到git-http-backend处理
+            ScriptAlias /git /usr/lib/git-core/git-http-backend/
+            # 配置目录权限
+            &lt;Directory &quot;/usr/lib/git-core*&quot;&gt;
+               Options ExecCGI Indexes
+               Order allow,deny
+               Allow from all
+            &lt;/Directory&gt;
+            &lt;LocationMatch &quot;^/git/.*/git-receive-pack$&quot;&gt;
+                # 使用了Apache的basic认证，详见Apache
+                AuthType Basic
+                AuthName &quot;Git Access&quot;
+                Require group committers
+            &lt;/LocationMatch&gt;
+        &lt;/VirtualHost&gt;
+</code></pre><ol>
+<li><p>确保启用Apache的cgid模块，这是解析<code>git-http-backend</code>必须的模块</p>
+<pre><code>sudo a2enmod cgid
+</code></pre></li>
+<li>在<code>/var/www/repo</code>下创建仓库<code>test</code>，可以使用<code>http://127.0.0.1/git/test</code>访问到。<h4 id="u90E8_u7F72Django_u9879_u76EE"><a href="#u90E8_u7F72Django_u9879_u76EE" class="headerlink" title="部署Django项目"></a>部署Django项目</h4></li>
+<li><p>安装wsgi模块，并启用</p>
+<pre><code>sudo apt-get install libapache2-mod-wsgi
+sudo a2enmod wsgi
+</code></pre></li>
+<li><p>创建wsgi脚本来处理请求，高版本django已经自动生成</p>
+<pre><code>import os,sys
+path = os.path.join(os.path.dirname(__file__),&apos;../&apos;)
+if path not in sys.path:
+    sys.path.insert(0, path)
+os.environ.setdefault(&quot;DJANGO_SETTINGS_MODULE&quot;, &quot;lql.settings&quot;)
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
+</code></pre></li>
+<li><p>在<code>/etc/apache2/site-available</code>中创建<code>lab</code>配置文件，配置虚拟主机</p>
+<pre><code>&lt;VirtualHost *:8080&gt;
+    DocumentRoot /home/lql/lab_web_site
+    &lt;Directory /home/lql/lab_web_site&gt;
+        #是否允许目录浏览，-表示不允许
+        Options -Indexes FollowSymLinks MultiViews
+        AllowOverride None
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+    # 设置处理脚本
+    WSGIScriptAlias / /var/www/lab_web_site/wsgi.py
+    # 添加静态内容映射，django在非debug模式是不处理静态文件的
+    Alias /static  /home/lql/lab_web_site/static
+&lt;/VirtualHost&gt;
+</code></pre></li>
+<li><p>监听8080端口<br>示例使用了8080端口，但Apache默认是不监听8080端口的，配置<code>/etc/apache2/ports.conf</code>,添加</p>
+<pre><code>Listen 8080
+</code></pre></li>
+<li><p>启用lab并重载配置</p>
+<pre><code># 启用lab配置文件
+sudo a2ensite lab
+# 检查配置文件是否正确
+sudo apache2ctl -t
+# 重新加载配置文件
+service apache2 reload
+</code></pre><h4 id="u5B89_u88C5mod_python"><a href="#u5B89_u88C5mod_python" class="headerlink" title="安装mod_python"></a>安装mod_python</h4><p>mod_python依赖Apxs，是Apache运行python的功能模块。  </p>
+</li>
+<li><p>检查Apxs是否安装，没有输出路径则没有安装</p>
+<pre><code># 检查是否安装Apxs
+$which apxs2
+/usr/bin/apxs2
+# 无输出则安装Apxs
+$sudo apt-get install python2.7-dev
+$sudo apt-get install apache2-dev
+</code></pre></li>
+<li>下载<a href="http://modpython.org/" target="_blank" rel="external">Mod_pythod</a>最新源码，后面标号为版本号，并不是对应的python版本</li>
+<li><p>编译mod_python<br>编译安装完成后，<code>mod_python.so</code>会在<code>/usr/lib/apache2/modules/</code>路径下</p>
+<pre><code># 查看apxs安装路径
+$which apxs2
+/usr/bin/apxs2
+# python安装路径
+$which python
+/usr/bin/python
+# 进入mod_python源码目录
+$cd mod_python
+# 设置apxs和python路径
+$./configure --with-apxs=/usr/bin/apxs2 --with-python=/usr/bin/python
+# make时会报错，详见错误汇总
+$make
+$sudo make install
+</code></pre></li>
+<li><p>创建加载文件并启用<br>在<code>/etc/apache2/mods-available</code>中创建加载文件<code>python.load</code>和配置文件<code>python.conf</code></p>
+<pre><code># python.load
+# 告知Apache加载哪个功能模块
+LoadModule python_module /usr/lib/apache2/modules/mod_python.so
+</code></pre><p> 使用Apache命令启用功能模块</p>
+<pre><code>sudo a2enmod python
+# 重启服务
+sudo service apache2 restart
+</code></pre><h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2></li>
+</ol>
+<ul>
+<li><p><code>mod_python</code> make 出错</p>
+<blockquote>
+<p>connobject.c: In function ‘_conn_read’:<br>connobject.c:142:19: error: request for member ‘next’ in something not a structure or union<br>apxs:Error: Command failed with rc=65536.<br>make[1]: <strong><em> [mod_python.so] Error 1<br>make[1]: Leaving directory `/home/general/Desktop/mod_python-3.3.1/src’<br>make: </em></strong> [do_dso] Error 2</p>
+</blockquote>
+<p>  解决办法：修改<code>mod_python/src/connobject.c</code>代码,大概142行，将</p>
+<pre><code>!(b == APR_BRIGADE_SENTINEL(b) ||
+</code></pre><p>  改为</p>
+<pre><code>!(b == APR_BRIGADE_SENTINEL(bb) ||
+</code></pre><p>  重新<code>make</code>即可。</p>
+</li>
+<li><p>[搭建git服务器]clone时403错误</p>
+<blockquote>
+<p>$ git clone <a href="http://172.29.152.251:8080/git/test" target="_blank" rel="external">http://172.29.152.251:8080/git/test</a><br>Cloning into ‘test’…<br>fatal: unable to access ‘<a href="http://172.29.152.251:8080/git/test/" target="_blank" rel="external">http://172.29.152.251:8080/git/test/</a>‘: The requested URL returned error: 403</p>
+</blockquote>
+<p>  原因：Apache2.2与Apache2.4版本的权限设置有较大差异<br>  Apache2.2</p>
+<pre><code>Order allow,deny
+Allow from all
+</code></pre><p>  Apache2.4</p>
+<pre><code>Require all granted
+</code></pre><p>  解决办法：将git配置文件中权限管理部分改为新版本格式。</p>
+</li>
+<li><p>[搭建git服务器]clone时404错误</p>
+<blockquote>
+<p>$ git clone <a href="http://172.29.152.251:8080/git/test" target="_blank" rel="external">http://172.29.152.251:8080/git/test</a><br>Cloning into ‘test’…<br>fatal: repository ‘<a href="http://172.29.152.251:8080/git/test/" target="_blank" rel="external">http://172.29.152.251:8080/git/test/</a>‘ not found  </p>
+</blockquote>
+<p>  Apache日志</p>
+<blockquote>
+<p>172.29.153.211 - - [18/Mar/2016:03:16:34 +0000] “GET /git/test/info/refs?service=git-upload-pack HTTP/1.1” 404 4793 “-“ “git/2.5.0.windows.1”</p>
+</blockquote>
+<p>  原因：git的<code>git-http-backend</code>是一个cgi脚本，Apache必须开启<code>cgid</code>模块才能使用它，未启用时会报404错误。<br>  解决办法：启用Apache cgid模块并重启服务</p>
+<pre><code>sudo a2enmod cgid
+sudo service apache2 restart
+</code></pre></li>
+</ul>
+<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.jb51.net/article/50800.htm" target="_blank" rel="external">Apache Prefork、Worker和Event三种MPM详解
+</a>  </li>
+<li><a href="http://blog.csdn.net/aerchi/article/details/46873515" target="_blank" rel="external">服务器.htaccess 详解以及 .htaccess 参数说明</a>  </li>
+<li><a href="http://www.365mini.com/page/apache-options-directive.htm" target="_blank" rel="external">Apache Options指令详解</a>  </li>
+<li><a href="http://blog.csdn.net/tingya/article/details/1282841" target="_blank" rel="external">Apache中的配置指令概述</a>  </li>
+<li><a href="http://blog.jobbole.com/41519/" target="_blank" rel="external">配置Apache Basic和Digest认证</a></li>
+<li><a href="http://www.360doc.com/content/14/0106/10/13084517_342989201.shtml" target="_blank" rel="external">Apache的Order中的allow和deny小结</a></li>
+<li><a href="https://git-scm.com/docs/git-http-backend" target="_blank" rel="external">git-http-backend文档</a></li>
+<li><a href="http://blog.163.com/lionyue@126/blog/static/1079307120098755628766/" target="_blank" rel="external">mod_python安装配置笔记  </a></li>
+<li><a href="http://httpd.apache.org/docs/2.4/upgrading.html#run-time" target="_blank" rel="external">apache权限配置差异</a></li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/apache/" rel="tag">#apache</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/12/Sublime Text/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Apache2_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Apache2笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u914D_u7F6E_u6587_u4EF6"><span class="nav-number">1.1.4.</span> <span class="nav-text">配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.3.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u642D_u5EFAgit_u670D_u52A1_u5668"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">搭建git服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u90E8_u7F72Django_u9879_u76EE"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">部署Django项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u5B89_u88C5mod_python"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">安装mod_python</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

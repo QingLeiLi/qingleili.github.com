@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/12/Hexo笔记/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Hexo笔记">
-<meta property="og:updated_time" content="2015-12-15T12:42:16.950Z">
+<meta property="og:updated_time" content="2016-03-12T11:35:57.231Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo笔记">
 <meta name="twitter:description" content="Hexo笔记">
@@ -280,19 +280,26 @@ cd blog
 <li>访问<code>http://用户名.github.io/</code>就应该可以看到博客了。</li>
 </ol>
 <h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li><p>部署网站时找不到github：<code>Deployer not found: github</code><br>解决办法：见<code>部署博客到GitPage上</code>第2，3条</p>
+<li>部署网站时找不到github<blockquote>
+<p>Deployer not found: github</p>
+</blockquote>
 </li>
+</ul>
+<p>解决办法：见<code>部署博客到GitPage上</code>第2，3条</p>
+<ul>
 <li><p>部署时执行<code>hexo deploy</code>命令行没有任何输出，也没有错误提示<br>解决办法：在_config.yml文件中，找到deploy:标签，确保每个冒号（<code>type</code>，<code>repository</code>，<code>branch</code>等）后面有空格，否则就会出现上述问题。 </p>
 </li>
-<li><p>访问网页时，文章不显示，后台报错<br><code>ERROR Process failed: _posts/git.md
-YAMLException: can not read a block mapping entry; 
-a multiline key may not be animplicit key at line 4, column 1</code><br>原因：yaml配置文件对格式要求很严格，文章的头部信息，每一个键后必须有一个空格，否则会报错。<br>解决办法：检查文章头部信息格式将</p>
+<li><p>访问网页时，文章不显示，后台报错</p>
+<blockquote>
+<p>ERROR Process failed: _posts/git.md<br>YAMLException: can not read a block mapping entry;<br>a multiline key may not be animplicit key at line 4, column 1  </p>
+</blockquote>
+</li>
+</ul>
+<p>原因：yaml配置文件对格式要求很严格，文章的头部信息，每一个键后必须有一个空格，否则会报错。<br>解决办法：检查文章头部信息格式将</p>
 <pre><code>tags:git
 </code></pre><p>改为</p>
 <pre><code>tags: git
 </code></pre><p>注意空格区别。</p>
-</li>
-</ul>
 <h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
 <li><a href="https://github.com/iissnan/hexo-theme-next.git" target="_blank" rel="external">next主题地址</a></li>
 </ul>
@@ -313,12 +320,16 @@ a multiline key may not be animplicit key at line 4, column 1</code><br>原因�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2015/12/12/python笔记/" rel="next" title="Python笔记">
+                <i class="fa fa-chevron-left"></i> Python笔记
+              </a>
+            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/12/git笔记/" rel="prev" title="Git笔记">
-                Git笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/12/pythonXlwt（Excel文件的创建与修改）/" rel="prev" title="Python Xlwt笔记(读写Excel文件)">
+                Python Xlwt笔记(读写Excel文件) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -387,7 +398,7 @@ a multiline key may not be animplicit key at line 4, column 1</code><br>原因�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -401,7 +412,7 @@ a multiline key may not be animplicit key at line 4, column 1</code><br>原因�
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

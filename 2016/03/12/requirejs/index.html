@@ -1,0 +1,776 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="requirejs," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="requirejs笔记requirejs是一个js三方插件，支持Js的CMD和AMD规范。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requirejs笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/12/requirejs/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="requirejs笔记requirejs是一个js三方插件，支持Js的CMD和AMD规范。">
+<meta property="og:updated_time" content="2016-03-12T09:59:34.858Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="requirejs笔记">
+<meta name="twitter:description" content="requirejs笔记requirejs是一个js三方插件，支持Js的CMD和AMD规范。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> requirejs笔记 | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                requirejs笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-03-12T15:32:02+08:00" content="2016-03-12">
+              2016-03-12
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="requirejs_u7B14_u8BB0"><a href="#requirejs_u7B14_u8BB0" class="headerlink" title="requirejs笔记"></a>requirejs笔记</h1><p>requirejs是一个js三方插件，支持Js的CMD和AMD规范。<br><a id="more"></a></p>
+<p>##全局函数<br>requirejs提供的函数，使用<code>require.toUrl()</code>形式调用</p>
+<ul>
+<li>toUrl(“app/dep.js”)  //得到该资源的完整URL，用来填充资源地址等</li>
+<li>undef(‘jquery’)  //阻止依赖该模块的js继续加载，直至该模块加载完<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2></li>
+</ul>
+<ol>
+<li><p>在页面中引入requirejs<br>使用延迟加载，尽可能晚的加载requirejs，确保其使用的不符合规范的js文件能在其之前加载。<br><code>data-main</code>定义了requirejs的主文件，该文件定义了需要使用的js文件路径，别名，依赖关系等等。</p>
+<pre><code>&lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot; data-main=&quot;js/main&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>定义无依赖模块 - <code>dep.js</code></p>
+<pre><code>//无依赖模块定义，
+//第一个参数为数组，表明依赖的模块，
+//第二个参数为函数，返回任意类型数据，
+define([], function(){
+    function dep(){
+        console.log(&apos;this is dep&apos;);
+    }
+    return {
+        dep : dep
+    };
+});
+</code></pre></li>
+<li><p>定义AMD规范模块 - <code>test.js</code></p>
+<pre><code>//第一个参数为数组，表明依赖的模块，可以为main.js中定义的别名，也可以是相对于require.js的路径；
+//第二个参数为函数，返回任意类型
+//第三个参数为异常处理函数
+define([&apos;require&apos;,&apos;./app/dep&apos;], function(require,dep){
+    function foo(){
+        console.log(&apos;this is foo&apos;);
+        console.log(&apos;i will use dep&apos;);
+        dep.dep();
+    }
+    return {
+        foo : foo
+    };
+}, function (err) {
+    //异常处理
+    console.log(err);
+    var failedId = err.requireModules &amp;&amp; err.requireModules[0];
+    if(failedId == &apos;app/dep&apos;){}
+});
+</code></pre></li>
+<li><p>定义CMD规范模块 - <code>test_cmd.js</code></p>
+<pre><code>//将require作为参数，使用其他模块时动态require
+define(function(require, exports, module){
+    function foo(){
+        console.log(&apos;this is foo&apos;);
+        console.log(&apos;i will use dep&apos;);
+        //在这里动态加载
+        require(&quot;./app/dep&quot;).dep();
+    }
+    return {
+        foo : foo
+    };
+}, function (err) {
+    //异常处理
+    console.log(err);
+    var failedId = err.requireModules &amp;&amp; err.requireModules[0];
+    if(failedId == &apos;app/dep&apos;){}
+});
+</code></pre></li>
+<li><p>定义requirejs主文件基本设置-<code>main.js</code></p>
+<pre><code>requirejs.config({
+    // 基目录,与下面配置的路径有关,默认值为RequireJS所在目录
+    // 模块查找地址一般为 baseUrl + paths，除非
+    //    1.以 &quot;.js&quot; 结束        -其地址解析为对于当前HTML的相对地址
+    //    2.以 &quot;/&quot; 开始,
+    //    3.包含 URL 协议, 如 &quot;http:&quot; or &quot;https:&quot;.
+    baseUrl: &quot;js/&quot;,
+
+    // 配置模块名与对应文件
+    paths: {
+        // 可以使用网络地址
+        &quot;jquery&quot;: &quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min&quot;,
+        // 可以传入数组容错，依次加载直至加载成功
+        &quot;jquery2&quot;: [&quot;https://ajax.googleapis.com/ajax/libs/jquery/1.7.3/jquery.min&quot;,
+                &apos;lib/jquery&apos;
+            ],
+        &quot;test&quot;: &quot;app/test&quot;,
+        &apos;jquery.scrollTo&apos;: &quot;lib/jquery.scrollTo.js&quot;,
+    },
+    // 配置不符合AMD规范的库
+    shim: {
+　　　　&apos;jquery.scrollTo&apos;: {
+            // 定义依赖的模块，这些模块应该在加载scroll之前就被加载
+　　　　　　deps: [&apos;jquery&apos;],
+            // 定义对外提供调用的对象名，调用scroll来使用该模块
+　　　　　　exports: &apos;scrollTo&apos;,
+            // 初始化
+            init: function (jquery) {
+                // 依赖会作为参数传入，进行某些处理
+                // this指向jquery.scrollTo的全局变量
+                // 如果具有返回值，返回值会覆盖exports设置的值
+                return this.Foo.noConflict();
+            }
+　　　　}
+　　},
+    // 不同目录下的依赖将得到不同的js文件，提高代码向后兼容性
+     map: {
+         // 所有模块使用foo1.2.js，优先级最低，可以被下面的配置覆盖
+        &apos;*&apos;: {
+            &apos;foo&apos;: &apos;foo1.2&apos;
+        },
+        // 对于some文件夹下的oldmodule模块使用foo1.0.js
+        &apos;some/oldmodule&apos;: {
+            &apos;foo&apos;: &apos;foo1.0&apos;
+        }
+    },
+    // 为模块设置某些值方便使用传递
+    /*
+    test.js
+        define(function (require, exports, module) {
+            //Will be the value &apos;large&apos;
+            var size = module.config().size;
+        });
+    or
+        define([&apos;module&apos;], function (module) {
+            //Will be the value &apos;large&apos;
+            var size = module.config().size;
+        });
+    */
+      config: {
+        &apos;test&apos;: {
+            size: &apos;large&apos;
+        },
+    }
+});
+
+// 全局异常事件
+requirejs.onError = function (err) {
+    console.log(err);
+    if (err.requireType === &apos;timeout&apos;) {
+        console.log(&apos;modules: &apos; + err.requireModules);
+    }
+};
+</code></pre></li>
+<li><p>在主文件中使用<code>domReady</code>插件 -<code>main.js</code><br>插件文件<code>domReady.js</code>应该放在<code>baseUrl</code>目录下，默认为requirejs所在目录<br>domReady有两种调用方式，阻塞与非阻塞，在声明依赖是进行区分<br>非阻塞方式：</p>
+<pre><code>//该方法是异步方法，不阻塞继续执行
+require([&apos;domReady&apos;], function (domReady) {
+  domReady(function () {
+      console.log(&apos;dom is ready&apos;);
+  });
+});
+</code></pre><p>阻塞方式：</p>
+<pre><code>//该方法会一直等待dom加载，直至dom加载完成执行函数，参数为document
+//声明依赖时多了一个`!`
+require([&apos;domReady!&apos;], function (doc) {
+    require([&apos;test&apos;], function (test){
+        test.foo();
+    });
+});
+</code></pre></li>
+<li>查看页面<h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2></li>
+</ol>
+<ul>
+<li>解决办法：</li>
+</ul>
+<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://www.requirejs.cn/" target="_blank" rel="external">RequireJS 中文网</a><br><a href="http://requirejs.org/" target="_blank" rel="external">RequireJS 官网</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/requirejs/" rel="tag">#requirejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/11/新浪云应用（SAE）笔记/" rel="next" title="新浪云应用（SAE）笔记">
+                <i class="fa fa-chevron-left"></i> 新浪云应用（SAE）笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/12/git笔记/" rel="prev" title="Git笔记">
+                Git笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#requirejs_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">requirejs笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.1.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.2.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.3.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/12/pythonWin32com/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Win32com笔记Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。">
-<meta property="og:updated_time" content="2015-12-15T12:37:11.092Z">
+<meta property="og:updated_time" content="2016-03-12T11:37:33.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Win32com笔记">
 <meta name="twitter:description" content="Win32com笔记Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。">
@@ -297,16 +297,25 @@ doc.SaveAs(&apos;test.doc&apos;)
 doc.Close()
 w.Quit()
 </code></pre><h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li><p>在注册表中找不到Python<br><code>Python Version 3.4 required which was not found in the registry</code><br><strong>原因：</strong>windows平台下，32/64bit第三方库会分别在32/64bit的注册表中查找python路径，而安装的python 64bit只会把安装信息写入32bit的注册表中，当安装64bit的win32com时，在注册表查找不到python的安装信息。</p>
+<li>在注册表中找不到Python  <blockquote>
+<p>Python Version 3.4 required which was not found in the registry</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>原因：</strong>windows平台下，32/64bit第三方库会分别在32/64bit的注册表中查找python路径，而安装的python 64bit只会把安装信息写入32bit的注册表中，当安装64bit的win32com时，在注册表查找不到python的安装信息。</p>
 <blockquote>
 <p>Python的一些第三方库只到注册表的HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Python\PythonCore\2.7\InstallPath路径下寻找Python。但是装好的64位Python在HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\2.7\InstallPath路径下建立Python的信息。所以，在cmd输入regedit然后将HKEY_LOCAL_MACHINE\SOFTWARE\Python\PythonCore\2.7\InstallPath路径下的值，复制到HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Python\PythonCore\2.7\InstallPath路径下，当然没有路径的话要新建。</p>
 </blockquote>
-<p>  <strong>解决办法：</strong>添加相应的python安装信息到注册表，可以手动新建也可以修改date文件夹下的reg文件来一键导入。</p>
+<pre><code>**解决办法：**添加相应的python安装信息到注册表，可以手动新建也可以修改date文件夹下的reg文件来一键导入。
+</code></pre><ul>
+<li>import win32com出错  <blockquote>
+<p>importError：DLL load failed %1 不是有效的Win32应用程序</p>
+</blockquote>
 </li>
-<li><p>import win32com出错<br><code>importError：DLL load failed %1 不是有效的Win32应用程序</code><br><strong>原因：</strong>win32com的版本位数与python版本位数不对应<br><strong>解决办法：</strong>cmd执行python，查看python位数，下载对应安装包，再次安装</p>
-</li>
-<li><p>同时安装WPS和Office时，使用word.application创建文档时，打开的是WPS，且保存时会出错<br>笔者卸载了WPS，暂未得到解决</p>
-</li>
+</ul>
+<p><strong>原因：</strong>win32com的版本位数与python版本位数不对应<br><strong>解决办法：</strong>cmd执行python，查看python位数，下载对应安装包，再次安装</p>
+<ul>
+<li>同时安装WPS和Office时，使用word.application创建文档时，打开的是WPS，且保存时会出错<br>笔者卸载了WPS，暂未得到解决</li>
 </ul>
 <h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
 <li>Windows下使用相对路径保存文件，相对于当前用户的<code>文档</code>目录</li>
@@ -409,7 +418,7 @@ w.Quit()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">23</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -423,7 +432,7 @@ w.Quit()
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
