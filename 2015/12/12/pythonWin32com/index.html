@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/12/pythonWin32com/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Win32com笔记Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。">
-<meta property="og:updated_time" content="2016-03-18T10:10:30.986Z">
+<meta property="og:updated_time" content="2016-03-18T10:10:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Win32com笔记">
 <meta name="twitter:description" content="Win32com笔记Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。">
@@ -225,19 +225,19 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Win32com_u7B14_u8BB0"><a href="#Win32com_u7B14_u8BB0" class="headerlink" title="Win32com笔记"></a>Win32com笔记</h1><p>Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。<br><a id="more"></a></p>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
+        <span itemprop="articleBody"><h1 id="Win32com笔记"><a href="#Win32com笔记" class="headerlink" title="Win32com笔记"></a>Win32com笔记</h1><p>Pywin32 是python windows的扩展，不跨平台，通过COM口进行操作，几乎封装了所有python下面的win32相关的操作，例如win32api,win32gui等等。笔者用来对Word进行操作，其可以打开Word应用，新建文档，插入，另存，设置样式，查找，替换，页眉页脚，表格等操作，只对用到的功能进行简单总结。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
 <li>Python</li>
 </ul>
-<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3><ol>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ol>
 <li>在<code>http://sourceforge.net/projects/pywin32/files/pywin32/Build%20219/</code>下载对应windows平台和python版本的文件并执行</li>
 </ol>
-<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
 <li><p>文档(可能需要翻墙)</p>
 <pre><code>http://docs.activestate.com/activepython/2.4/pywin32/html/com/win32com/HTML/docindex.html
 </code></pre></li>
 </ul>
-<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2><h3 id="u57FA_u672C_u547D_u4EE4"><a href="#u57FA_u672C_u547D_u4EE4" class="headerlink" title="基本命令"></a>基本命令</h3><ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><ul>
 <li><p>启动Word应用</p>
 <pre><code>#如果存在已启动的word应用，则使用已打开的应用
 w = win32com.client.Dispatch(&apos;Word.Application&apos;)
@@ -272,9 +272,9 @@ doc.SaveAs(&apos;test.doc&apos;)
 </code></pre></li>
 <li><p>退出应用</p>
 <pre><code>w.Quit()
-</code></pre><h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3></li>
+</code></pre><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3></li>
 </ul>
-<h4 id="u521B_u5EFAWord_u6587_u6863Demo"><a href="#u521B_u5EFAWord_u6587_u6863Demo" class="headerlink" title="创建Word文档Demo"></a>创建Word文档Demo</h4><pre><code>import win32com
+<h4 id="创建Word文档Demo"><a href="#创建Word文档Demo" class="headerlink" title="创建Word文档Demo"></a>创建Word文档Demo</h4><pre><code>import win32com
 from win32com.client import Dispatch, constants
 
 #使用启动独立的进程
@@ -296,7 +296,7 @@ doc.SaveAs(&apos;test.doc&apos;)
 # 关闭
 doc.Close()
 w.Quit()
-</code></pre><h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
+</code></pre><h2 id="错误汇总"><a href="#错误汇总" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
 <li><p>在注册表中找不到Python  </p>
 <blockquote>
 <p>Python Version 3.4 required which was not found in the registry</p>
@@ -316,7 +316,7 @@ w.Quit()
 <li><p>同时安装WPS和Office时，使用word.application创建文档时，打开的是WPS，且保存时会出错<br>  卸载了WPS，暂未得到解决</p>
 </li>
 </ul>
-<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
 <li>Windows下使用相对路径保存文件，相对于当前用户的<code>文档</code>目录</li>
 <li>注册组件的API可以通过OLEView查看<a href="http://my.oschina.net/zxcholmes/blog/484789?fromerr=nFk8XNi5" target="_blank" rel="external">参考</a></li>
 </ul>
@@ -339,16 +339,16 @@ w.Quit()
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/12/pythonXlwt（Excel文件的创建与修改）/" rel="next" title="Python Xlwt笔记(读写Excel文件)">
-                <i class="fa fa-chevron-left"></i> Python Xlwt笔记(读写Excel文件)
+              <a href="/2015/12/12/Hexo笔记/" rel="next" title="Hexo笔记">
+                <i class="fa fa-chevron-left"></i> Hexo笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/12/pythonXlrd（读取Excel文件）/" rel="prev" title="Python Xlrd笔记(读取Excel文件)">
-                Python Xlrd笔记(读取Excel文件) <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/12/python笔记/" rel="prev" title="Python笔记">
+                Python笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -417,7 +417,7 @@ w.Quit()
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -431,7 +431,7 @@ w.Quit()
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -463,7 +463,7 @@ w.Quit()
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Win32com_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Win32com笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u521B_u5EFAWord_u6587_u6863Demo"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">创建Word文档Demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Win32com笔记"><span class="nav-number">1.</span> <span class="nav-text">Win32com笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建Word文档Demo"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">创建Word文档Demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误汇总"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.4.</span> <span class="nav-text">注意</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

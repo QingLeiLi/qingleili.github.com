@@ -1,0 +1,728 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="bower," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="bower笔记Bower是一个包管理程序，可以很方便的安装需要的文件。但是bower一般结合grunt一起使用，解决bower引用文件麻烦的局限性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bower笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/bower/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="bower笔记Bower是一个包管理程序，可以很方便的安装需要的文件。但是bower一般结合grunt一起使用，解决bower引用文件麻烦的局限性。">
+<meta property="og:updated_time" content="2016-05-13T05:50:30.764Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Bower笔记">
+<meta name="twitter:description" content="bower笔记Bower是一个包管理程序，可以很方便的安装需要的文件。但是bower一般结合grunt一起使用，解决bower引用文件麻烦的局限性。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Bower笔记 | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Bower笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-13T13:50:16+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="bower笔记"><a href="#bower笔记" class="headerlink" title="bower笔记"></a>bower笔记</h1><p>Bower是一个包管理程序，可以很方便的安装需要的文件。但是bower一般结合grunt一起使用，解决bower引用文件麻烦的局限性。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><pre><code>npm install -g bower
+</code></pre><p>##　使用</p>
+<ol>
+<li><p>初始化项目<br> 在项目目录下运行<code>bower init</code>命令，bower会通过交互新建一个配置文件-bower.json，该文件设置了项目的一些信息以及依赖的软件包。</p>
+<pre><code>bower init
+</code></pre><p> 通过交互设置大致信息后，生成配置文件</p>
+</li>
+<li><p>安装当前依赖的软件包<br> 使用<code>bower install</code>来安装当前项目所需的依赖，bower会读取<code>dependencies</code>配置项，安装所有依赖。</p>
+<pre><code>bower install
+</code></pre></li>
+<li><p>安装开发环境软件包<br> 使用<code>bower install angular --save-dev</code>命令安装angular，参数<code>--save-dev</code>表示将该软件表作为开发依赖放入<code>devDependencies</code>配置项</p>
+<pre><code>bower install angular --save-dev
+</code></pre></li>
+<li><p>安装生成环境软件包<br> 使用<code>bower install angular --save</code>命令安装angular，参数<code>--save</code>表示将该软件表作为生产依赖放入<code>dependencies</code>配置项</p>
+<pre><code>bower install angular --save
+</code></pre></li>
+<li><p>使用安装完的组件<br> bower软件包的使用可以是很笨的方法，直接引用文件，很麻烦，一般结合grunt使用。</p>
+<pre><code>&lt;!-- jquery --&gt;
+&lt;script src=&quot;../bower_components/jquery.min/index.js&quot;&gt;&lt;/script&gt;
+</code></pre><h2 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h2><p>Bower提供了多种软件包的安装方式，可以通过注册名，github短地址，url安装。Bower安装的软件包默认在<code>./bower_components/</code>目录。</p>
+</li>
+</ol>
+<ul>
+<li><p>注册名<br>  bower会在其注册软件列表中查找该软件包的名字，查找到后会判断是否缓存，然后去指定位置获取软件包并安装。</p>
+<pre><code>bower install jquery
+</code></pre></li>
+<li><p>github短地址<br>  若所需的软件包没有在bower列表中注册，且该软件包位于github仓库中，则可以使用该方式安装。使用时提供一个用户名和仓库名的组合，比如jquery/jquery，就表示该软件包位于jquery用户的jquery仓库中，这样就定位了唯一一个仓库，bower会去拉取源代码安装。</p>
+<pre><code>bower install jquery/jquery
+</code></pre></li>
+<li><p>url安装<br>  如果软件包既没有进行注册，也可以使用url直接进行安装，例如jquery的cdn<code>http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js</code>,bower下载该文件将其放入<code>jquery.min</code>目录或者github的完整地址。</p>
+<pre><code>bower install http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js
+bower install https://github.com/jquery/jquery
+</code></pre></li>
+</ul>
+<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>bower的配置文件大致有两个：bower.json和.bowerrc。</p>
+<ul>
+<li><p>bower.json<br>  该文件置于项目根目录，配置的是项目相关的一些基本信息以及依赖的软件包。</p>
+<pre><code># bower.json
+{
+  &quot;name&quot;: &quot;test&quot;,
+  &quot;authors&quot;: [
+    &quot;lql &lt;110@qq.com&gt;&quot;
+  ],
+  &quot;description&quot;: &quot;a test project fo bower&quot;,
+  // 项目依赖的入口文件
+  &quot;main&quot;: &quot;&quot;,
+  &quot;keywords&quot;: [
+    &quot;test&quot;
+  ],
+  &quot;license&quot;: &quot;MIT&quot;,
+  &quot;homepage&quot;: &quot;&quot;,
+  // 表示私有，不会注册到bower的列表中
+  &quot;private&quot;: true,
+  // 忽略的文件及文件夹
+  &quot;ignore&quot;: [
+    &quot;**/.*&quot;,
+    &quot;node_modules&quot;,
+    &quot;bower_components&quot;,
+    &quot;test&quot;,
+    &quot;tests&quot;
+  ],
+  // 依赖，可以使用`bower install`直接安装这些包
+  &quot;dependencies&quot;: {
+    &quot;bootstrap&quot;: &quot;^3.3.6&quot;,
+    &quot;jquery.min&quot;: &quot;http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js&quot;
+  },
+  // 开发环境使用的依赖
+  &quot;devDependencies&quot;: {
+    &quot;bootstrap&quot;: &quot;^3.3.6&quot;,
+    &quot;jquery.min&quot;: &quot;http://cdn.bootcss.com/jquery/3.0.0-beta1/jquery.min.js&quot;,
+    &quot;angular&quot;:&quot;~1.3.2&quot;,
+  }
+}
+</code></pre></li>
+<li><p>.bowerrc<br>  该文件也是置于项目根目录，设置的是该项目下bower的个性化配置。</p>
+<pre><code>#.bowerrc 
+{
+    // 软件包的安装文件夹，默认是bower_components
+    &quot;directory&quot;:&quot;bower_components&quot;,
+    // http代理地址，bower会通过该代理拉取软件包
+    &quot;proxy&quot;:&quot;http://proxy.example.com:8080&quot;,
+    // https的代理地址
+    &quot;https-proxy&quot;:&quot;https://proxy.example.com:8080&quot;,
+    // 超时时间
+    &quot;timeout&quot;:60000,
+}
+</code></pre></li>
+</ul>
+<h2 id="错误汇总"><a href="#错误汇总" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
+<li><p>初始化错误</p>
+<blockquote>
+<p>$ bower init<br>bower ENOINT        Register requires an interactive shell  </p>
+<p>Additional error details:<br>Note that you can manually force an interactive shell with –config.interactive</p>
+</blockquote>
+<p>  <strong>原因</strong>：使用gitbash或cygwin运行命令会有问题，具体问题没细查。<br>  <strong>解决办法</strong>：  </p>
+<ul>
+<li>在cmd或标准终端下运行命令</li>
+<li>重装gitbash<br>  重装时注意配置git bash。<ol>
+<li>Use Git form the Windows Command Prompt</li>
+<li>Checkout Windows-style, commit Unix-style line endings</li>
+<li>Use Windows’ default console window</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://bower.io/" target="_blank" rel="external">bower官网</a></li>
+<li><a href="https://github.com/bower/bower/issues/802" target="_blank" rel="external">bower init failing to bring the interactive prompt to create bower.json</a></li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bower/" rel="tag">#bower</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/gitlab/" rel="next" title="gitLab笔记">
+                <i class="fa fa-chevron-left"></i> gitLab笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/13/grunt/" rel="prev" title="Grunt笔记">
+                Grunt笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bower笔记"><span class="nav-number">1.</span> <span class="nav-text">bower笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装软件包"><span class="nav-number">1.2.</span> <span class="nav-text">安装软件包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置文件"><span class="nav-number">1.3.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误汇总"><span class="nav-number">1.4.</span> <span class="nav-text">错误汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

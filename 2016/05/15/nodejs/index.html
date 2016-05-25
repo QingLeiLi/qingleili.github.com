@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Ubuntu," />
+  <meta name="keywords" content="nodejs," />
 
 
 
@@ -51,16 +51,16 @@
 
 
 
-<meta name="description" content="Ubuntu笔记杂记。">
+<meta name="description" content="NodeJs笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu笔记">
-<meta property="og:url" content="http://yoursite.com/2016/01/05/Ubuntu笔记/index.html">
+<meta property="og:title" content="NodeJs笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/15/nodejs/index.html">
 <meta property="og:site_name" content="Hello, World">
-<meta property="og:description" content="Ubuntu笔记杂记。">
-<meta property="og:updated_time" content="2016-03-18T10:19:53.125Z">
+<meta property="og:description" content="NodeJs笔记">
+<meta property="og:updated_time" content="2016-05-19T11:20:33.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ubuntu笔记">
-<meta name="twitter:description" content="Ubuntu笔记杂记。">
+<meta name="twitter:title" content="NodeJs笔记">
+<meta name="twitter:description" content="NodeJs笔记">
 
 
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title> Ubuntu笔记 | Hello, World </title>
+  <title> NodeJs笔记 | Hello, World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -192,7 +192,7 @@
             
             
               
-                Ubuntu笔记
+                NodeJs笔记
               
             
           </h1>
@@ -201,8 +201,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-01-05T15:17:42+08:00" content="2016-01-05">
-              2016-01-05
+            <time itemprop="dateCreated" datetime="2016-05-15T12:18:50+08:00" content="2016-05-15">
+              2016-05-15
             </time>
           </span>
 
@@ -225,18 +225,63 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Ubuntu_u7B14_u8BB0"><a href="#Ubuntu_u7B14_u8BB0" class="headerlink" title="Ubuntu笔记"></a>Ubuntu笔记</h1><p>杂记。<br><a id="more"></a></p>
-<h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
-<li><p>apt-get遇到公钥错误  </p>
-<blockquote>
-<p>W: GPG error: <a href="http://http.debian.net" target="_blank" rel="external">http://http.debian.net</a> jessie-backports InRelease: The following signatures couldn’t be verified because the public key is not available: NO_PUBKEY 8B48AD6246925553  </p>
-</blockquote>
-<p>  <strong>解决办法：</strong>运行命令</p>
-<p>  gpg –keyserver keyserver.ubuntu.com –recv-keys 8B48AD6246925553<br>  gpg –export –armor “8B48AD6246925553” | apt-key add -</p>
-</li>
-<li><p>apt-get遇到依赖问题<br>  <strong>解决办法</strong>：安装aptitude，与apt-get一样，但是其在处理依赖方面会好一些，可以提供多套解决方案。</p>
-<pre><code>sudo apt-get install aptitude
+        <span itemprop="articleBody"><h1 id="NodeJs笔记"><a href="#NodeJs笔记" class="headerlink" title="NodeJs笔记"></a>NodeJs笔记</h1><a id="more"></a>
+<h2 id="安装nvm（nodejs版本控制）"><a href="#安装nvm（nodejs版本控制）" class="headerlink" title="安装nvm（nodejs版本控制）"></a>安装nvm（nodejs版本控制）</h2><p>nodejs有两个版本控制软件，n与nvm。</p>
+<ul>
+<li>nvm<br>  独立于nodejs，可以安装多个版本nodejs并可以切换。<br>  使用nvm安装的nodejs都被安装在nvm自己的目录下，通过修改环境变量来切换不同的版本；而且某个版本下的包都是安装在当前node版本文件夹下的，切换版本后，所有的node包需要重新安装。<br>  nvm是一个将各个node完全隔离（全局的软件包也是独立的）开的沙盒，尽可能减少了不兼容的情况发生。<br>  不支持windows，但是其实现了windows平台的nvmw。</li>
+<li>n<br>  作为nodejs的一个开源包，需要使用nodejs全局安装，如果要使用n，你首先要有一个nodejs环境。<br>  其依赖于node，通过修改<code>/usr/local/bin</code>来切换不同版本；各个版本的全局包是共用的，可能产生不兼容的问题。</li>
+</ul>
+<h3 id="nvm安装"><a href="#nvm安装" class="headerlink" title="nvm安装"></a>nvm安装</h3><ol>
+<li><p>获取nvm，可以使用git，curl等获取，这里使用git将源码下载到<code>~/.nvm</code>目录</p>
+<pre><code>git clone https://github.com/creationix/nvm.git ~/.nvm
+cd ~/.nvm
+# 切换分支到最新
+git checkout `git describe --abbrev=0 --tags`
 </code></pre></li>
+<li><p>运行其脚本-nvm.sh，设置nvn运行所需的环境变量等信息</p>
+<pre><code>source ~/.nvm/nvm.sh
+</code></pre></li>
+<li><p>如果用户注销或关机，环境变量会失效，需要重新运行nvm.sh，为避免繁琐，将其写入环境变量文件。<br> 在<code>~/.bashrc</code>,<code>~/.profile</code>,<code>~/.zshrc</code>选择一个写入即可。这里<code>.</code>即为source，是等效的。</p>
+<pre><code>export NVM_DIR=&quot;$HOME/.nvm&quot;
+[ -s &quot;$NVM_DIR/nvm.sh&quot; ] &amp;&amp; . &quot;$NVM_DIR/nvm.sh&quot; # This loads nvm
+</code></pre></li>
+</ol>
+<h3 id="nvm使用"><a href="#nvm使用" class="headerlink" title="nvm使用"></a>nvm使用</h3><ul>
+<li>nvm ls：查看已安装的node；</li>
+<li>nvm ls-remote：查看可安装的node版本；</li>
+<li>nvm install 6.1.0：安装node6.0.1版本，nvm会尝试下载node的二进制文件进行安装，如果失败，则尝试源码安装；</li>
+<li>nvm uninstall 6.1.0：卸载6.10.版本</li>
+<li>nvm use [6.1.0]：nvm会检测当前目录下是否有.nvmrc文件，有的话使用指导版本，否则要指明使用的版本号</li>
+</ul>
+<h2 id="cnpm"><a href="#cnpm" class="headerlink" title="cnpm"></a>cnpm</h2><p>npm是node的包管理器，用于自动解决依赖，但因为npm的软件仓库在国外，导致npm安装包经常失败，为此淘宝建立了npm的镜像仓库，用于国内安装加速。<br>cnpm就是使用国内镜像用于替换npm命令的，其基于npm，只是npm的封装。  </p>
+<h3 id="安装cnpm"><a href="#安装cnpm" class="headerlink" title="安装cnpm"></a>安装cnpm</h3><pre><code>npm install -g cnpm --registry=https://registry.npm.taobao.org
+</code></pre><h3 id="cnpm使用"><a href="#cnpm使用" class="headerlink" title="cnpm使用"></a>cnpm使用</h3><p>cnpm的使用与npm大致一直，有两点不同：</p>
+<ol>
+<li>淘宝不支持发布软件包，所以<code>publish</code>命令不能使用；</li>
+<li><p>cnpm支持额外命令-<code>sync</code>，用于立即同步某个模块，淘宝会连接npm软件包仓库，将最新版本拉取到镜像仓库。</p>
+<pre><code>$ cnpm sync connect
+</code></pre></li>
+</ol>
+<h2 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h2><p>package.json是nodejs项目的配置文件，定义了整个项目的名称，版本等基本信息以及运行所需依赖等信息。</p>
+<ul>
+<li><p>devDependencies和dependencies<br>  运行项目所需依赖，分别为开发环境所需依赖和生产环境所需依赖，为字典格式，使用<code>npm install</code>时，npm会读取这两个字段，将所有依赖进行安装。版本的声明有多种模式：</p>
+<ol>
+<li><p>宽松版本限制<br>使用<code>^</code>表示，说明所安装软件包版本要符合要求版本的主版本号即可。主版本号为版本号的第一位数字。如下，项目依赖1.0.1版本的<code>grunt</code>，但是使用了<code>^</code>宽松版本限制，可以使用<code>1.0.0</code>~<code>1.9.9</code>所有版本的<code>grunt</code>。</p>
+<pre><code>&quot;devDependencies&quot;: {
+    &quot;grunt&quot;: &quot;^1.0.1&quot;
+}
+</code></pre></li>
+<li><p>严格版本限制<br>使用<code>~</code>表示，说明所安装软件包版本要符合要求版本的最小版本。最小版本号为版本号的最后一位位数字。如下，项目依赖1.0.1版本的<code>grunt</code>，但是使用了<code>~</code>严格版本限制，只可以使用<code>1.0.0</code>~<code>1.0.9</code>所有版本的<code>grunt</code>。</p>
+<pre><code>&quot;devDependencies&quot;: {
+    &quot;grunt&quot;: &quot;^1.0.1&quot;
+}
+</code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2></li>
+</ol>
+</li>
+<li><a href="https://github.com/creationix/nvm" target="_blank" rel="external">nvm Github主页</a></li>
+<li><a href="https://github.com/tj/n" target="_blank" rel="external">n Github主页</a></li>
+<li><a href="http://taobaofed.org/blog/2015/11/17/nvm-or-n/" target="_blank" rel="external">管理node版本选择nvm还是n？</a></li>
+<li><a href="https://npm.taobao.org/" target="_blank" rel="external">淘宝 NPM 镜像</a></li>
 </ul>
 </span>
       
@@ -246,7 +291,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Ubuntu/" rel="tag">#Ubuntu</a>
+            <a href="/tags/nodejs/" rel="tag">#nodejs</a>
           
         </div>
       
@@ -255,16 +300,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/01/Thrift笔记/" rel="next" title="Thrift笔记">
-                <i class="fa fa-chevron-left"></i> Thrift笔记
+              <a href="/2016/05/13/grunt/" rel="next" title="Grunt笔记">
+                <i class="fa fa-chevron-left"></i> Grunt笔记
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/03/08/Expect笔记/" rel="prev" title="expect笔记">
-                expect笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/05/15/python Virtualenv，virtualenvwrapper与pyenv/" rel="prev" title="python Virtualenv，virtualenvwrapper与pyenv">
+                python Virtualenv，virtualenvwrapper与pyenv <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -333,7 +378,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -347,7 +392,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -379,7 +424,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Ubuntu笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.1.</span> <span class="nav-text">错误汇总</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NodeJs笔记"><span class="nav-number">1.</span> <span class="nav-text">NodeJs笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nvm（nodejs版本控制）"><span class="nav-number">1.1.</span> <span class="nav-text">安装nvm（nodejs版本控制）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm安装"><span class="nav-number">1.1.1.</span> <span class="nav-text">nvm安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm使用"><span class="nav-number">1.1.2.</span> <span class="nav-text">nvm使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnpm"><span class="nav-number">1.2.</span> <span class="nav-text">cnpm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装cnpm"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装cnpm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cnpm使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">cnpm使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package-json"><span class="nav-number">1.3.</span> <span class="nav-text">package.json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.4.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="excel,python,xlwt," />
+  <meta name="keywords" content="python,excel,xlwt," />
 
 
 
@@ -57,7 +57,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/12/12/pythonXlwt（Excel文件的创建与修改）/index.html">
 <meta property="og:site_name" content="Hello, World">
 <meta property="og:description" content="Xlwt笔记Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，参考。">
-<meta property="og:updated_time" content="2016-03-18T10:11:11.477Z">
+<meta property="og:updated_time" content="2016-03-18T10:11:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Xlwt笔记(读写Excel文件)">
 <meta name="twitter:description" content="Xlwt笔记Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，参考。">
@@ -225,20 +225,20 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Xlwt_u7B14_u8BB0"><a href="#Xlwt_u7B14_u8BB0" class="headerlink" title="Xlwt笔记"></a>Xlwt笔记</h1><p>Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，<a href="http://qingleili.github.io/2015/12/12/pythonXlrd%EF%BC%88%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6%EF%BC%89/" target="_blank" rel="external">参考</a>。<br><a id="more"></a></p>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
+        <span itemprop="articleBody"><h1 id="Xlwt笔记"><a href="#Xlwt笔记" class="headerlink" title="Xlwt笔记"></a>Xlwt笔记</h1><p>Xlwt用来对Excel文件进行简单写操作，并且可以设置单元格的样式且跨平台，在Ubuntu 12.04测试通过；但其只支持较老版本的Excel文件（97/2000/XP/2003的xls文件），不支持xlsx等office2007后加格式，如果需要，请自行百度openpyxl模块;不能读取Excel文件，如有需要，可以使用Xlrd模块，<a href="http://qingleili.github.io/2015/12/12/pythonXlrd%EF%BC%88%E8%AF%BB%E5%8F%96Excel%E6%96%87%E4%BB%B6%EF%BC%89/" target="_blank" rel="external">参考</a>。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
 <li>pip</li>
 </ul>
-<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install xlwt
-</code></pre><h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><ul>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre><code>pip install xlwt
+</code></pre><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
 <li><p>文档</p>
 <pre><code>http://xlwt.readthedocs.org/en/latest/
 </code></pre></li>
 <li><p><a href="http://www.tuicool.com/articles/N3mmYf7" target="_blank" rel="external">分析excel文件的层级对象</a><br>  要读取excel的数据，就要了解excel的结构，根据excel的结构一层一层的去读取数据。</p>
 <p>  excel有三层级对象，workbook，sheet，和cell。一个excel文件就是一个workbook，所以在最初我们必须要打开这个excel文件，也就是workbook。sheet我们都很熟悉，就是表，我们都知道一个excel文件有时候会有很多的表，所以我们必须要选择是读取哪个表的数据，最后才是cell，cell其实就是格子，excel的表格就是一个二维数组，cell就是这个表格中的最小单元，也就是我们读取数据存储的地方。</p>
-<h2 id="u4F7F_u7528"><a href="#u4F7F_u7528" class="headerlink" title="使用"></a>使用</h2></li>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2></li>
 </ul>
-<h3 id="u57FA_u672C_u547D_u4EE4"><a href="#u57FA_u672C_u547D_u4EE4" class="headerlink" title="基本命令"></a>基本命令</h3><ul>
+<h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><ul>
 <li><p>创建一个book对象</p>
 <pre><code>wbk = xlwt.Workbook()
 </code></pre></li>
@@ -269,7 +269,7 @@ sheet1.write(0, 1, &apos;some bold Times text&apos;, style)
 <pre><code>wbk.save(&apos;test.xls&apos;)
 </code></pre></li>
 </ul>
-<h3 id="u5E94_u7528"><a href="#u5E94_u7528" class="headerlink" title="应用"></a>应用</h3><h4 id="Excel_u6587_u4EF6_u521B_u5EFADemo"><a href="#Excel_u6587_u4EF6_u521B_u5EFADemo" class="headerlink" title="Excel文件创建Demo"></a>Excel文件创建Demo</h4><pre><code>#coding=utf-8       #设置编码方式
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="Excel文件创建Demo"><a href="#Excel文件创建Demo" class="headerlink" title="Excel文件创建Demo"></a>Excel文件创建Demo</h4><pre><code>#coding=utf-8       #设置编码方式
 
 import xlwt
 import random
@@ -282,7 +282,7 @@ for row in range(0,10):
         sheet.write(row,col,random.randrange(0,10))  #插入数据
 book.save(&quot;test.xls&quot;)
 print(&quot;Done&quot;)
-</code></pre><h2 id="u9519_u8BEF_u6C47_u603B"><a href="#u9519_u8BEF_u6C47_u603B" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
+</code></pre><h2 id="错误汇总"><a href="#错误汇总" class="headerlink" title="错误汇总"></a>错误汇总</h2><ul>
 <li><p>Windows下没有问题，移植到Ubuntu时发生字符转码错误  </p>
 <blockquote>
 <p>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xe8 in position 0: ordinal not in range(128)</p>
@@ -298,9 +298,9 @@ print(&quot;Done&quot;)
       
         <div class="post-tags">
           
-            <a href="/tags/excel/" rel="tag">#excel</a>
-          
             <a href="/tags/python/" rel="tag">#python</a>
+          
+            <a href="/tags/excel/" rel="tag">#excel</a>
           
             <a href="/tags/xlwt/" rel="tag">#xlwt</a>
           
@@ -311,16 +311,12 @@ print(&quot;Done&quot;)
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/12/Hexo笔记/" rel="next" title="Hexo笔记">
-                <i class="fa fa-chevron-left"></i> Hexo笔记
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/12/12/pythonWin32com/" rel="prev" title="Python Win32com笔记">
-                Python Win32com笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2015/12/12/markDown/" rel="prev" title="MarkDown笔记">
+                MarkDown笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -389,7 +385,7 @@ print(&quot;Done&quot;)
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -403,7 +399,7 @@ print(&quot;Done&quot;)
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -435,7 +431,7 @@ print(&quot;Done&quot;)
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xlwt_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Xlwt笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u547D_u4EE4"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5E94_u7528"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Excel_u6587_u4EF6_u521B_u5EFADemo"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Excel文件创建Demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u9519_u8BEF_u6C47_u603B"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Xlwt笔记"><span class="nav-number">1.</span> <span class="nav-text">Xlwt笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本命令"><span class="nav-number">1.2.1.</span> <span class="nav-text">基本命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用"><span class="nav-number">1.2.2.</span> <span class="nav-text">应用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Excel文件创建Demo"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">Excel文件创建Demo</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#错误汇总"><span class="nav-number">1.3.</span> <span class="nav-text">错误汇总</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

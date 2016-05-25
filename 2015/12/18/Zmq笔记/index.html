@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="pytohn,pyzmq,zmq," />
+  <meta name="keywords" content="pytohn,zmq,pyzmq," />
 
 
 
@@ -60,10 +60,11 @@
 <meta property="og:image" content="http://i4.tietuku.com/36d3f3b9e101a0a8.png">
 <meta property="og:image" content="http://i4.tietuku.com/2ef16966acb3a6a8.png">
 <meta property="og:image" content="http://i4.tietuku.com/df517ec38a7e078d.png">
-<meta property="og:updated_time" content="2016-03-18T10:21:44.896Z">
+<meta property="og:updated_time" content="2016-03-18T10:21:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zmq，PuZmq笔记">
 <meta name="twitter:description" content="Zmq，PyZmq笔记ZMQ(以下ZeroMQ简称ZMQ)是一个简单好用的传输层，像框架一样的一个socket library，他使得Socket编程更加简单、简洁和性能更高。是一个消息处理队列库，可在多个线程、内核和主机盒之间弹性伸缩。ZMQ的明确目标是“成为标准网络协议栈的一部分，之后进入Linux内核”。现在还未看到它们的成功。但是，它无疑是极具前景的、并且是人们更加需要的“传统”BSD套接">
+<meta name="twitter:image" content="http://i4.tietuku.com/36d3f3b9e101a0a8.png">
 
 
 
@@ -228,17 +229,17 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="Zmq_uFF0CPyZmq_u7B14_u8BB0"><a href="#Zmq_uFF0CPyZmq_u7B14_u8BB0" class="headerlink" title="Zmq，PyZmq笔记"></a>Zmq，PyZmq笔记</h1><p>ZMQ(以下ZeroMQ简称ZMQ)是一个简单好用的传输层，像框架一样的一个socket library，他使得Socket编程更加简单、简洁和性能更高。是一个消息处理队列库，可在多个线程、内核和主机盒之间弹性伸缩。ZMQ的明确目标是“成为标准网络协议栈的一部分，之后进入Linux内核”。现在还未看到它们的成功。但是，它无疑是极具前景的、并且是人们更加需要的“传统”BSD套接字之上的一 层封装。ZMQ让编写高性能网络应用程序极为简单和有趣。<br>zmq是一个消息队列。可以在进程内、进程间、TCP、多播中，以消息为单位传输数据，而不是socket的字节流。<br><a id="more"></a></p>
-<h3 id="ZMQ_u4E09_u79CD_u57FA_u672C_u901A_u8BAF_u6A21_u5F0F"><a href="#ZMQ_u4E09_u79CD_u57FA_u672C_u901A_u8BAF_u6A21_u5F0F" class="headerlink" title="ZMQ三种基本通讯模式"></a>ZMQ三种基本通讯模式</h3><ol>
+        <span itemprop="articleBody"><h1 id="Zmq，PyZmq笔记"><a href="#Zmq，PyZmq笔记" class="headerlink" title="Zmq，PyZmq笔记"></a>Zmq，PyZmq笔记</h1><p>ZMQ(以下ZeroMQ简称ZMQ)是一个简单好用的传输层，像框架一样的一个socket library，他使得Socket编程更加简单、简洁和性能更高。是一个消息处理队列库，可在多个线程、内核和主机盒之间弹性伸缩。ZMQ的明确目标是“成为标准网络协议栈的一部分，之后进入Linux内核”。现在还未看到它们的成功。但是，它无疑是极具前景的、并且是人们更加需要的“传统”BSD套接字之上的一 层封装。ZMQ让编写高性能网络应用程序极为简单和有趣。<br>zmq是一个消息队列。可以在进程内、进程间、TCP、多播中，以消息为单位传输数据，而不是socket的字节流。<br><a id="more"></a></p>
+<h3 id="ZMQ三种基本通讯模式"><a href="#ZMQ三种基本通讯模式" class="headerlink" title="ZMQ三种基本通讯模式"></a>ZMQ三种基本通讯模式</h3><ol>
 <li>应答模式(REQ-REP)：<br>消息是双向的，REQ-REP套接字发送和接受消息必须是成对的。<br>客户端必须先发送消息，才能接收消息，如果打乱了这个顺序（如连续发送两次）则会报错。类似地，服务端必须先进行接收，后进行发送。<br><img src="http://i4.tietuku.com/36d3f3b9e101a0a8.png" alt="应答模式">  </li>
 <li>订阅发布模式(PUB-SUB)<br>消息单向的，服务端只负责发送数据，不能接收数据，且不保证把全部的信息都发送给订阅者。<br>PUB-SUB套接字组合是异步的。客户端只能接收消息，如果向PUB套接字发送消息则会报错；类似地，服务端可以不断地使用send ()发送消息，但不能再PUB套接字上使用recv ()。<br>关于PUB-SUB套接字，还有一点需要注意：你无法得知SUB是何时开始接收消息的。就算你先打开了SUB套接字，后打开PUB发送消息，这时SUB还是会丢失一些消息的，因为建立连接是需要一些时间的。很少，但并不是零。解决此问题需要在PUB端加入sleep。<br><img src="http://i4.tietuku.com/2ef16966acb3a6a8.png" alt="订阅发布模式"></li>
 <li>分布式管道模式()<br><img src="http://i4.tietuku.com/df517ec38a7e078d.png" alt="分布式管道模式"></li>
 </ol>
-<h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><h3 id="u4F9D_u8D56"><a href="#u4F9D_u8D56" class="headerlink" title="依赖"></a>依赖</h3><ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><ul>
 <li>Python</li>
 <li>Pip</li>
 </ul>
-<h3 id="u5B89_u88C5-1"><a href="#u5B89_u88C5-1" class="headerlink" title="安装"></a>安装</h3><ol>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><ol>
 <li>下载zmq源码，<a href="http://zeromq.org/intro:get-the-software" target="_blank" rel="external">下载地址</a></li>
 <li><p>安装过程中会需要libtool, pkg-config, build-essential, autoconf和automake，先行安装</p>
 <pre><code>sudo apt-get install libtool, pkg-config, build-essential, autoconf,automake
@@ -253,15 +254,15 @@ sudo make install
 <pre><code>pip install pyzmq
 </code></pre></li>
 </ol>
-<h3 id="u5176_u4ED6"><a href="#u5176_u4ED6" class="headerlink" title="其他"></a>其他</h3><ul>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ul>
 <li><p>PyZmq Git地址</p>
 <pre><code>https://github.com/zeromq/pyzmq
 </code></pre></li>
 </ul>
-<h2 id="u6CE8_u610F"><a href="#u6CE8_u610F" class="headerlink" title="注意"></a>注意</h2><ul>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
 <li>Zmq4.0以上默认需要安装加密库</li>
 </ul>
-<h2 id="u53C2_u8003_u8D44_u6599"><a href="#u53C2_u8003_u8D44_u6599" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li><a href="http://blog.csdn.net/lfsf802/article/details/38238007" target="_blank" rel="external">http://blog.csdn.net/lfsf802/article/details/38238007</a></li>
 <li><a href="https://github.com/zeromq/pyzmq/downloads" target="_blank" rel="external">WinPyZmq下载地址</a></li>
 </ul>
@@ -275,9 +276,9 @@ sudo make install
           
             <a href="/tags/pytohn/" rel="tag">#pytohn</a>
           
-            <a href="/tags/pyzmq/" rel="tag">#pyzmq</a>
-          
             <a href="/tags/zmq/" rel="tag">#zmq</a>
+          
+            <a href="/tags/pyzmq/" rel="tag">#pyzmq</a>
           
         </div>
       
@@ -364,7 +365,7 @@ sudo make install
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -378,7 +379,7 @@ sudo make install
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
@@ -410,7 +411,7 @@ sudo make install
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zmq_uFF0CPyZmq_u7B14_u8BB0"><span class="nav-number">1.</span> <span class="nav-text">Zmq，PyZmq笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZMQ_u4E09_u79CD_u57FA_u672C_u901A_u8BAF_u6A21_u5F0F"><span class="nav-number">1.0.1.</span> <span class="nav-text">ZMQ三种基本通讯模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F9D_u8D56"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5176_u4ED6"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6CE8_u610F"><span class="nav-number">1.2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u53C2_u8003_u8D44_u6599"><span class="nav-number">1.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Zmq，PyZmq笔记"><span class="nav-number">1.</span> <span class="nav-text">Zmq，PyZmq笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ZMQ三种基本通讯模式"><span class="nav-number">1.0.1.</span> <span class="nav-text">ZMQ三种基本通讯模式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#依赖"><span class="nav-number">1.1.1.</span> <span class="nav-text">依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装-1"><span class="nav-number">1.1.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.1.3.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意"><span class="nav-number">1.2.</span> <span class="nav-text">注意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

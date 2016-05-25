@@ -1,0 +1,747 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="frontend," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="前端知识点
+HTML部分标签会经常使用，需要熟练掌握，知道其作用以及相关属性可以做到什么效果；对于不常用的标签要了解其使用效果，在具体场景中能够找到实现相应效果的标签即可。
+熟练掌握常见的html标签（div，form，input，a，table等等）的使用方法和相关属性；
+了解其他标签的作用和相关属性。
+
+
+CSS 要求了解各个标签的css属性，熟悉css选择器的使用。
+熟练掌握css选择器的使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="frontend">
+<meta property="og:url" content="http://yoursite.com/2016/05/21/frontEnd/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="前端知识点
+HTML部分标签会经常使用，需要熟练掌握，知道其作用以及相关属性可以做到什么效果；对于不常用的标签要了解其使用效果，在具体场景中能够找到实现相应效果的标签即可。
+熟练掌握常见的html标签（div，form，input，a，table等等）的使用方法和相关属性；
+了解其他标签的作用和相关属性。
+
+
+CSS 要求了解各个标签的css属性，熟悉css选择器的使用。
+熟练掌握css选择器的使">
+<meta property="og:updated_time" content="2016-05-21T09:01:10.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="frontend">
+<meta name="twitter:description" content="前端知识点
+HTML部分标签会经常使用，需要熟练掌握，知道其作用以及相关属性可以做到什么效果；对于不常用的标签要了解其使用效果，在具体场景中能够找到实现相应效果的标签即可。
+熟练掌握常见的html标签（div，form，input，a，table等等）的使用方法和相关属性；
+了解其他标签的作用和相关属性。
+
+
+CSS 要求了解各个标签的css属性，熟悉css选择器的使用。
+熟练掌握css选择器的使">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> frontend | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                frontend
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-21T16:43:28+08:00" content="2016-05-21">
+              2016-05-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="前端知识点"><a href="#前端知识点" class="headerlink" title="前端知识点"></a>前端知识点</h2><ol>
+<li>HTML<br>部分标签会经常使用，需要熟练掌握，知道其作用以及相关属性可以做到什么效果；对于不常用的标签要了解其使用效果，在具体场景中能够找到实现相应效果的标签即可。<ul>
+<li>熟练掌握常见的html标签（div，form，input，a，table等等）的使用方法和相关属性；</li>
+<li>了解其他标签的作用和相关属性。</li>
+</ul>
+</li>
+<li>CSS<br> 要求了解各个标签的css属性，熟悉css选择器的使用。<ul>
+<li>熟练掌握css选择器的使用；</li>
+<li>掌握css选择器的权重设置，样式优先级；</li>
+<li>了解html标签的css属性</li>
+<li>熟练使用bootstrap框架</li>
+<li>css的四种布局方式</li>
+</ul>
+</li>
+<li>js<br> js是当前前端开发中使用最多的，包括事件，数据处理，ajax等。<ul>
+<li>熟练使用jquery框架</li>
+<li>ajax异步获取数据</li>
+<li>js事件绑定方法的异同（onclick，attach，addEventListener）</li>
+<li>事件的冒泡与捕获</li>
+<li>事件委托（用于管理某个区域内所有的事件）</li>
+<li>获取/设置html，css属性</li>
+</ul>
+</li>
+<li>http协议<br> web的访问是通过http协议完成的，必须对http协议有一定的了解。<ul>
+<li>请求方式（GET，POST等）</li>
+<li>cookie</li>
+<li>session</li>
+<li>http请求包</li>
+<li>Http响应包</li>
+<li>状态码（404，500，302）</li>
+<li>缓存生存时间</li>
+</ul>
+</li>
+<li>安全<br> 要了解前端常见的攻击方式及防护手段。<ul>
+<li>csrf</li>
+<li>xss</li>
+<li>sql注入</li>
+<li>提交的表单要进行js验证，服务端再次验证</li>
+</ul>
+</li>
+<li>git<br> git是一个分布式的版本控制，项目开发的代码使用git进行代码合并。<ul>
+<li>clone</li>
+<li>status</li>
+<li>add</li>
+<li>commit</li>
+<li>pull</li>
+<li>push</li>
+<li>checkout</li>
+</ul>
+</li>
+<li>插件<br> 常用的插件有echarts和datatables。echarts是百度开发的一个图表库，支持的图表类型很多，可以使用其表现数据；datatables是jquery的一个表格插件，提供了分页，搜索，筛选等很多功能。两个插件都需要掌握使用。<ul>
+<li>echarts</li>
+<li>datatables</li>
+</ul>
+</li>
+</ol>
+<h2 id="前端开发流程"><a href="#前端开发流程" class="headerlink" title="前端开发流程"></a>前端开发流程</h2><p>使用html与css开发出一整个网站是费时费力的，而且当前前端开发人员的能力也不够，我们所做的开发是基于模板的，更多的是后端程序的开发。</p>
+<ol>
+<li>查找模板<br> 在各大模板网站查找模板(<a href="http://themeforest.net/" target="_blank" rel="external">themeforest</a>)查找比较好看，符合功能需求的模板，一般模板都会自带侧边框和用户，还有很多的插件示例，基本可以满足需求。<br> 模板挑选的标准就是可以直接拿来使用，形成大致的框架，以后的工作都是基于该模板的修改，要保证后续的修改不至于太麻烦。</li>
+<li><p>下载模板并修正<br> 一般找到的模板都是收费的，有条件可以买；没有条件的话可以使用wget做整站克隆，将尽可能多的文件下载到本地，使网站可以本地运行，使用方法自行百度；  </p>
+<p> 模板一般会有一些cdn引用（jquery，bootstrap之类）或下载失败的资源（例如google字体库），需要手动将模板进行修改。</p>
+<ol>
+<li><p>尽可能保证模板中不需要下载其他服务器资源<br> 因为网站的部署环境并不确定，在不允许访问外网的条件下使用其他站点资源可能造成排版或功能问题。  </p>
+<p> 使用文本编辑器打开整个模板文件夹，使用全局搜索<code>http</code>，将找到的内容下载到本地，并修改模板代码将源链接指向本地文件。</p>
+</li>
+<li><p>检查缺少的资源<br> 使用wget的情况下，部分资源可能没有进行下载，导致网页404错误，手动下载好了。  </p>
+<p> 打开模板网页，f12打开控制台，看是否有报错，404错误要查找原因，手动下载缺失文件，其他错误酌情处理。  </p>
+<p>模板在使用前必须保证控制台不能有报错。</p>
+</li>
+</ol>
+</li>
+<li><p>Django创建项目<br> django是python的一个mvc框架，可以去看<a href="http://docs.30c.org/djangobook2/" target="_blank" rel="external">django book</a>，需要注意的是django版本在不断更新，书中一些配置与新版本不一致，学习的时候建议使用其指定的版本。  </p>
+<p> 创建django项目后，需要配置模板路径，数据库，静态文件等，具体配置自行百度。  </p>
+<p> 将模板的框架分离出来作为django模板系统的基础模板，其他页面继承基础模板，添加主体部分就行了。  </p>
+<p> 至此，一个项目的框架就大致搭建好了，剩下的就是开发了。</p>
+</li>
+<li>开发<br> 前后端交互一般使用ajax获取json数据，后台会提供url来获取相关数据，前端使用js或jquery的ajax异步获取数据，然后初始化前端的插件，更新数据等。</li>
+</ol>
+<h2 id="现代web开发"><a href="#现代web开发" class="headerlink" title="现代web开发"></a>现代web开发</h2><p>这部分内容与实验室无关，仅作为前端开发的补充，有兴趣可以看一下。  </p>
+<p>因为nodejs的出现，现在的web开发涌现了一大批的自动化开发工具。  </p>
+<ul>
+<li>bower：前端包的管理器，管理jquery，bootstrap等前端框架</li>
+<li>grunt/gulp：用于重复操作的脚本化，你可以使用其插件压缩源代码，生成生产版本，添加浏览器前缀，监视文件，动态调试等</li>
+<li>yeoman：一个脚手架工具，使用其生成器可以很快的生成一个前端项目框架，安装grunt，bower，自动下载依赖包等。</li>
+<li>angularJs：google开发的前端库，可以动态绑定数据显示等。</li>
+<li>react：Facebook开发的前端组件库，可以定义组件方便重用，而且在大数据量的情况下速度很快。</li>
+</ul>
+<h2 id="前端笔试题目"><a href="#前端笔试题目" class="headerlink" title="前端笔试题目"></a>前端笔试题目</h2><ol>
+<li><p>使用js获取完整URL中的GET参数<br> input：完整URL<br> output：包含所有参数的对象<br> eg：  </p>
+<pre><code>input:https://www.baidu.com/s?word=test  
+output:{
+    word:&apos;test&apos;,
+}
+</code></pre></li>
+<li><p>使用js原型实现类的继承，在父类中定义方法，子类中可以调用即可（不限时间）</p>
+<pre><code>function Parent(name) {
+    this.name = name;
+    this.sayHello = function() {
+        console.log(&apos;Hello&apos;, this.name);
+    }
+}
+function Child(name) {
+    ...
+}
+
+var child = new Child(&apos;test&apos;);
+child.sayHello();
+</code></pre></li>
+</ol>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/frontend/" rel="tag">#frontend</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/15/python Virtualenv，virtualenvwrapper与pyenv/" rel="next" title="python Virtualenv，virtualenvwrapper与pyenv">
+                <i class="fa fa-chevron-left"></i> python Virtualenv，virtualenvwrapper与pyenv
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/25/DNS域名系统/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前端知识点"><span class="nav-number">1.</span> <span class="nav-text">前端知识点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端开发流程"><span class="nav-number">2.</span> <span class="nav-text">前端开发流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#现代web开发"><span class="nav-number">3.</span> <span class="nav-text">现代web开发</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端笔试题目"><span class="nav-number">4.</span> <span class="nav-text">前端笔试题目</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

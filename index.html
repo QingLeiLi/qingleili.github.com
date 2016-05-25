@@ -200,8 +200,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/18/Sublime Text/" itemprop="url">
-                  Sublime Text使用
+                <a class="post-title-link" href="/2016/05/25/DNS域名系统/" itemprop="url">
+                  未命名
                 </a>
               
             
@@ -211,8 +211,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-18T18:13:41+08:00" content="2016-03-18">
-              2016-03-18
+            <time itemprop="dateCreated" datetime="2016-05-25T18:07:51+08:00" content="2016-05-25">
+              2016-05-25
             </time>
           </span>
 
@@ -236,9 +236,432 @@
 
       
         
-          <h1 id="Sublime_Text_u4F7F_u7528"><a href="#Sublime_Text_u4F7F_u7528" class="headerlink" title="Sublime Text使用"></a>Sublime Text使用</h1><p>Sublime Text的基本使用与常用插件安装。<br>
+          <span itemprop="articleBody">
+            
+              <h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="DNS服务"><a href="#DNS服务" class="headerlink" title="DNS服务"></a>DNS服务</h3><p>DNS是Domain Name System 的缩写，即域名系统。<br>DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。<br>形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。<br>DNS是一套分布式的域名服务系统，每个DNS服务器上都存放着大量的机器名和IP地址的映射，并且是动态更新的，众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。</p>
+<h3 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h3><p>DNS服务器可以分为3种，即主域名服务器(Master DNS)、辅助域名服务器(Slave DNS)、缓存服务器。</p>
+<ul>
+<li>Master DNS:即权威DNS服务器，本身提供DNS服务，并且本身含有区域数据文件；主DNS服务器可以修改记录；</li>
+<li>Slave DNS：即递归DNS服务器，有一份主DNS服务器数据的拷贝，和Master一起提供DNS服务；当Master服务器上的配置信息修改的时候，会同步更新到Slave服务器上；辅助DNS服务器没有记录的修改权限；</li>
+<li>缓存服务器：没有自己的区域数据文件，只是帮助客户端向外部DNS请求查询，然后将查询的结果保存到它的缓存中，缓存时间取决于获得该记录服务器的设置。</li>
+</ul>
+<h3 id="传输（UDP-TCP）"><a href="#传输（UDP-TCP）" class="headerlink" title="传输（UDP/TCP）"></a>传输（UDP/TCP）</h3><p>DNS报文以数据报UDP或者字节流TCP进行传输。字节流可以用来任何的DNS的传输，数据报可以减少代价提高传输性能，区域刷新必须使用TCP，因为需要一个可靠的传输，因特网中DNS支持端口53的TCP[RFC-793]和端口53的UDP [RFC-768]传输。</p>
+<ul>
+<li><p>使用UDP<br>  DNS报文通过UDP的53端口进行传输，UDP传输的消息严格要求限制在512字节内（不包括IP和UDP头），长报文被截断，同时置报文头的TC标志位；  </p>
+<p>  UDP主要用在标准的域名查询，其传输速度快，可能丢失，请求和应答可能在网络中或者服务器处理的时候被重新排序，所以解析客户端不能依赖请求的发送顺序；  </p>
+</li>
+</ul>
+<ul>
+<li><p>使用TCP<br>  TCP主要用于区域传输，因为区域传输的报文会很大，udp不能满足需求，而且区域传输对可靠性要求较高；  </p>
+<p>  通过TCP发送的报文使用53端口，报文的前面有个字节表示后面报文的长度，长度不包括自己占用的2个字节，这个长度使得底层收取完整的报文后在交给上层处理。</p>
+</li>
+</ul>
+<h2 id="DNS报文格式"><a href="#DNS报文格式" class="headerlink" title="DNS报文格式"></a>DNS报文格式</h2><p>DNS消息主要由五部分组成：</p>
+<p>|    —-    |    :—–            |<br>|Header        |消息头部            |<br>|Question    |DNS请求                 |<br>|Answer        |回答请求的资源记录    |<br>|Authority    |指向域的资源记录        |<br>|Additional    |其他资源记录            |</p>
+<h3 id="头部（Header）"><a href="#头部（Header）" class="headerlink" title="头部（Header）"></a>头部（Header）</h3><p>消息头，定义了该报文是请求或者应答，查询类型，应答码，回答数量等基础消息。  </p>
+<pre><code>                              1  1  1  1  1  1  1
+0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                   MessageID                   |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|QR|  Opcode   |AA|TC|RD|RA|   Z    |   RCODE   |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                    QDCOUNT                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                    ANCOUNT                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                    NSCOUNT                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                    ARCOUNT                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+</code></pre><ul>
+<li><strong>MessageID</strong><br>  16位的消息ID标示一次正常的交互，该ID由消息请求者设置，消息响应者回复请求时带上该ID，若ID一致，则确实为该次请求的响应；</li>
+<li><strong>QR</strong><br>  标示该消息是请求消息（该位为0）还是应答消息（该位为1）</li>
+<li><p><strong>OPCODE</strong><br>  请求类型，目前有三类值：</p>
+<p>  |值    |字段    |说明            |<br>  |–    |—–    |—–            |<br>  |0    |QUERY    |标准查询        |<br>  |1    |IQUERY    |反向查询        |<br>  |2    |STATUS    |DNS状态请求        |<br>  |5    |UPDATE    |DNS域更新请求    |</p>
+</li>
+<li><p><strong>AA</strong><br>  只在响应消息中有效。该位标示响应该消息的域名服务器是该域中的权威域名服务器。我没有测试到有置1的情况，可能被废弃了；</p>
+</li>
+<li><strong>TC</strong><br>  标示这条消息是否因为长度超过UDP数据包的标准长度512字节；如果超过512字节，将数据包截断为512字节，将该位设置为1，可以考虑后续使用TCP重传；</li>
+<li><strong>RD</strong><br>  是否递归查询。如果该位被设置为1，则收到请求的域名服务器会递归查询域名，需要注意的是，该位为1，域名服务器不一定会做递归查询，这取决于域名服务器是否支持递归查询（RA）；</li>
+<li><strong>RA</strong><br>  在响应消息中清除并设置。标示该DNS域名服务器是否支持递归查询；</li>
+<li><p><strong>RCODE</strong><br>  只在响应消息中有效，标示响应消息的类型：</p>
+<p>  |值    |字段            |说明                                        |<br>  |–    |—–            |—————————–                |<br>  |0    |成功            |没有错误                                    |<br>  |1    |格式错误        |域名服务器无法解析请求，因为请求消息格式错误        |<br>  |2    |服务器错误        |域名服务器因为内部错误无法解析该请求            |<br>  |3    |名字错误        |只在权威域名服务器的响应消息中有效，标示请求中请求的域不存在|<br>  |4    |Not Implemented|域名服务器不支持请求的类型                        |<br>  |5    |Refused        |域名服务器因为策略的原因拒绝执行请求的操作        |</p>
+</li>
+<li><p><strong>QDCOUNT</strong><br>  标示请求部分（Question）的条目数，即问题数；</p>
+</li>
+<li><strong>ANCOUNT</strong><br>  标示响应部分（Answer）的资源记录数。如果响应消息中没有记录，则设置为0；</li>
+<li><strong>NSCOUNT</strong><br>  标示权威部分（Authority）的域名服务器资源记录数。如果响应消息中没有权威记录，则设置为0</li>
+<li><strong>ARCOUNT</strong><br>  标示额外部分（Additional）的资源记录数。</li>
+</ul>
+<h3 id="问题部分（Question）"><a href="#问题部分（Question）" class="headerlink" title="问题部分（Question）"></a>问题部分（Question）</h3><p>DNS请求，指定查询的对象和方式，包括查询名，查询方式和查询类。</p>
+<pre><code>                              1  1  1  1  1  1  1
+0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                                               |
+/                     QNAME                     /
+/                                               /
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                     QTYPE                     |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+|                     QCLASS                    |
++--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+</code></pre><ul>
+<li><p>QNAME<br>  请求的域名。这里需要注意的是域名的编码。请求的域名中没有“.”，域名中的“.”被编码为元信息，指示接下来的多少字节是有效信息。eg：<br>  我要请求www.google.com.hk的A记录，其中的QNAME段是：  </p>
+<pre><code># 03代表往后三个字符为域名信息
+# 而第四个06则表示在此以&apos;.&apos;隔开，往后6个字符为域名信息
+# 直至得到元信息&apos;0&apos;，域名结束
+03 77 77 77 06 67 6f 6f 67 6c 65 03 63 6f 6d 02 68 6b 00
+   w  w  w  .  g  o  o  g  l  e  .  c  o  m  .  h   k
+</code></pre></li>
+<li><p>QTYPE<br>  请求的资源记录的类型，最常见的有：</p>
+<ul>
+<li><strong>0x0001 A记录</strong><br>  A (Address) 记录是用来指定主机名（或域名）对应的IP地址记录。用户可以将该域名下的网站服务器指向到自己的web server上，同时也可以设置您域名的二级域名。<br>  该查询方式返回域名对应的IP地址。</li>
+<li><strong>0x0002 NS记录</strong><br>  该记录给出解析该域名的权威DNS服务器，这些服务器中只有一个主服务器，所有服务器的SOA记录指向他，他们都算是权威服务器，但真正的权威服务器只有主服务器。</li>
+<li><strong>0x0005 CNAME记录</strong><br>  别名记录。这种记录允许您将多个名字映射到另外一个域名。通常用于同时提供WWW和MAIL等多种服务的计算机。<br>  例如，有一台计算机名为“host.mydomain.com”（A记录）。它同时提供WWW和MAIL服务，为了便于用户访问服务。可以为该计算机设置两个别名（CNAME）： “www.mydomain.com”和“mail.mydomain.com”。实际上他们都指向 “host.mydomain.com”。<br>  该查询方式返回域名对应的别名，然后使用别名获得真实服务器的A记录。</li>
+<li><p><strong>0x0006 SOA记录</strong><br>  可以译为原始权威服务器，SOA记录表明了DNS服务器之间的关系。SOA记录表明了谁是这个区域的所有者（权威服务器）。SOA记录指向该区域的权威服务器，递归服务器只是定时获取权威服务器的数据拷贝。<br>  该查询方式返回权威服务器域名，和一些定时更新的设置数据。  </p>
+<pre><code>(    
+    # 权威DNS域名
+    &apos;ns1.a.shifen.com&apos;,
+    # 管理员邮箱
+    &apos;baidu_dns_master.baidu.com&apos;,
+    # 当前数据文件序列号，权威服务器每次更新数据都会增加该值，递归服务器检查该值来确认是否需要更新数据，一般格式为YYYYMMDDnn
+    (&apos;serial&apos;, 1604180010),
+    # 备用服务器检查序列号是否增加，即域文件是否有变化的间隔时间，单位为秒。
+    (&apos;refresh &apos;, 5, &apos;5 seconds&apos;),
+    # 如果备用服务器无法连上主服务器，过多久再重试，单位为秒
+    (&apos;retry&apos;, 5, &apos;5 seconds&apos;),
+    # 当备用服务器无法联系上主服务器时，备用服务器可以在多长时间内认为其缓存是有效的，并供用户查询，单位为秒
+    (&apos;expire&apos;, 86400, &apos;1 days&apos;),
+    # 缓存服务器可以缓存记录多长时间，单位为秒
+    (&apos;minimum&apos;, 3600, &apos;1 hours&apos;)
+)
+</code></pre></li>
+<li><strong>0x000C PTR记录</strong><br>  IP地址到DNS名称的映射，用于反向解析。</li>
+<li><strong>0x000F MX记录</strong><br>  邮件路由记录。</li>
+</ul>
+</li>
+<li>QCLASS<br>  请求的资源记录的类型，Internet或CHAOS<br>  大多是：<br>  0x0001  IN 或 Internet</li>
+</ul>
+<h3 id="回答字段（answer-authority-additional）"><a href="#回答字段（answer-authority-additional）" class="headerlink" title="回答字段（answer/authority/additional）"></a>回答字段（answer/authority/additional）</h3><p>有三种类型的回答字段  </p>
+<ul>
+<li><strong>answer</strong><br>  回答字段，保存查询结果的相关信息。</li>
+<li><strong>authority</strong><br>  授权回答字段，该部分保存的是请求的服务器被授权的回答，即提供查询的服务器为查询域名的权威服务器。</li>
+<li><strong>additional</strong><br>  附加字段，内容取决于服务器，也用来扩充DNS协议。<br>他们的格式都是资源记录格式。  </li>
+</ul>
+<pre><code>                                  1  1  1  1  1  1  1
+    0  1  2  3  4  5  6  7  8  9  0  1  2  3  4  5  6
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                                               |
+    /                                               /
+    /                      NAME                     /
+    |                                               |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                      TYPE                     |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                     CLASS                     |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                      TTL                      |
+    |                                               |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+    |                   RDLENGTH                    |
+    +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--|
+    /                     RDATA                     /
+    /                                               /
+     +--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+--+
+
+* **NAME 请求的域名**  
+    此处的域名有两种类型的标示防范，一是元信息标示方法；二是指针法。
+    指针法中请求的域名由一个16位的地址标示，该地址指向请求部分中的域名，它的地址是请求部分中域名距离消息开头的偏移量。
+* **TYPE RDATA内容的类型**  
+    16位。定义了RDATA部分中的内容，一般与请求中一直，但可能有其他额外信息；详见请求部分中TYPE。
+* **CLASS 资源记录的类型**
+    16位。标识响应资源记录的类型，Internet或CHAOS。  
+    大多为：  
+    0x0001  IN 或 Internet
+* **TTL 缓存数**
+    32位。该资源记录被缓存的秒数，其他DNS服务器获取该记录后缓存的时间。
+* **RDLENGTH RDATA长度**
+    16位。RDATA部分的长度，单位是字节。 
+* **RDATA 资源记录**
+    不同类型的资源记录有不同的RDATA格式；详见请求部分中TYPE的字段。
+</code></pre><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://blog.csdn.net/chenfei_5201213/article/details/7566146" target="_blank" rel="external">DNS报文格式</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_DNS_record_types" target="_blank" rel="external">QTYPE类型</a></li>
+<li><a href="http://my.oschina.net/u/1382972/blog/340036" target="_blank" rel="external">SOA字段解析</a></li>
+<li><a href="http://bbs.51cto.com/thread-908637-1.html" target="_blank" rel="external">SOA记录和NS记录的通俗解释</a></li>
+<li><a href="http://blog.csdn.net/chenfei_5201213/article/details/7566146" target="_blank" rel="external">DNS 报文格式(详细)</a></li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/21/frontEnd/" itemprop="url">
+                  frontend
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-21T16:43:28+08:00" content="2016-05-21">
+              2016-05-21
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h2 id="前端知识点"><a href="#前端知识点" class="headerlink" title="前端知识点"></a>前端知识点</h2><ol>
+<li>HTML<br>部分标签会经常使用，需要熟练掌握，知道其作用以及相关属性可以做到什么效果；对于不常用的标签要了解其使用效果，在具体场景中能够找到实现相应效果的标签即可。<ul>
+<li>熟练掌握常见的html标签（div，form，input，a，table等等）的使用方法和相关属性；</li>
+<li>了解其他标签的作用和相关属性。</li>
+</ul>
+</li>
+<li>CSS<br> 要求了解各个标签的css属性，熟悉css选择器的使用。<ul>
+<li>熟练掌握css选择器的使用；</li>
+<li>掌握css选择器的权重设置，样式优先级；</li>
+<li>了解html标签的css属性</li>
+<li>熟练使用bootstrap框架</li>
+<li>css的四种布局方式</li>
+</ul>
+</li>
+<li>js<br> js是当前前端开发中使用最多的，包括事件，数据处理，ajax等。<ul>
+<li>熟练使用jquery框架</li>
+<li>ajax异步获取数据</li>
+<li>js事件绑定方法的异同（onclick，attach，addEventListener）</li>
+<li>事件的冒泡与捕获</li>
+<li>事件委托（用于管理某个区域内所有的事件）</li>
+<li>获取/设置html，css属性</li>
+</ul>
+</li>
+<li>http协议<br> web的访问是通过http协议完成的，必须对http协议有一定的了解。<ul>
+<li>请求方式（GET，POST等）</li>
+<li>cookie</li>
+<li>session</li>
+<li>http请求包</li>
+<li>Http响应包</li>
+<li>状态码（404，500，302）</li>
+<li>缓存生存时间</li>
+</ul>
+</li>
+<li>安全<br> 要了解前端常见的攻击方式及防护手段。<ul>
+<li>csrf</li>
+<li>xss</li>
+<li>sql注入</li>
+<li>提交的表单要进行js验证，服务端再次验证</li>
+</ul>
+</li>
+<li>git<br> git是一个分布式的版本控制，项目开发的代码使用git进行代码合并。<ul>
+<li>clone</li>
+<li>status</li>
+<li>add</li>
+<li>commit</li>
+<li>pull</li>
+<li>push</li>
+<li>checkout</li>
+</ul>
+</li>
+<li>插件<br> 常用的插件有echarts和datatables。echarts是百度开发的一个图表库，支持的图表类型很多，可以使用其表现数据；datatables是jquery的一个表格插件，提供了分页，搜索，筛选等很多功能。两个插件都需要掌握使用。<ul>
+<li>echarts</li>
+<li>datatables</li>
+</ul>
+</li>
+</ol>
+<h2 id="前端开发流程"><a href="#前端开发流程" class="headerlink" title="前端开发流程"></a>前端开发流程</h2><p>使用html与css开发出一整个网站是费时费力的，而且当前前端开发人员的能力也不够，我们所做的开发是基于模板的，更多的是后端程序的开发。</p>
+<ol>
+<li>查找模板<br> 在各大模板网站查找模板(<a href="http://themeforest.net/" target="_blank" rel="external">themeforest</a>)查找比较好看，符合功能需求的模板，一般模板都会自带侧边框和用户，还有很多的插件示例，基本可以满足需求。<br> 模板挑选的标准就是可以直接拿来使用，形成大致的框架，以后的工作都是基于该模板的修改，要保证后续的修改不至于太麻烦。</li>
+<li><p>下载模板并修正<br> 一般找到的模板都是收费的，有条件可以买；没有条件的话可以使用wget做整站克隆，将尽可能多的文件下载到本地，使网站可以本地运行，使用方法自行百度；  </p>
+<p> 模板一般会有一些cdn引用（jquery，bootstrap之类）或下载失败的资源（例如google字体库），需要手动将模板进行修改。</p>
+<ol>
+<li><p>尽可能保证模板中不需要下载其他服务器资源<br> 因为网站的部署环境并不确定，在不允许访问外网的条件下使用其他站点资源可能造成排版或功能问题。  </p>
+<p> 使用文本编辑器打开整个模板文件夹，使用全局搜索<code>http</code>，将找到的内容下载到本地，并修改模板代码将源链接指向本地文件。</p>
+</li>
+<li><p>检查缺少的资源<br> 使用wget的情况下，部分资源可能没有进行下载，导致网页404错误，手动下载好了。  </p>
+<p> 打开模板网页，f12打开控制台，看是否有报错，404错误要查找原因，手动下载缺失文件，其他错误酌情处理。  </p>
+<p>模板在使用前必须保证控制台不能有报错。</p>
+</li>
+</ol>
+</li>
+<li><p>Django创建项目<br> django是python的一个mvc框架，可以去看<a href="http://docs.30c.org/djangobook2/" target="_blank" rel="external">django book</a>，需要注意的是django版本在不断更新，书中一些配置与新版本不一致，学习的时候建议使用其指定的版本。  </p>
+<p> 创建django项目后，需要配置模板路径，数据库，静态文件等，具体配置自行百度。  </p>
+<p> 将模板的框架分离出来作为django模板系统的基础模板，其他页面继承基础模板，添加主体部分就行了。  </p>
+<p> 至此，一个项目的框架就大致搭建好了，剩下的就是开发了。</p>
+</li>
+<li>开发<br> 前后端交互一般使用ajax获取json数据，后台会提供url来获取相关数据，前端使用js或jquery的ajax异步获取数据，然后初始化前端的插件，更新数据等。</li>
+</ol>
+<h2 id="现代web开发"><a href="#现代web开发" class="headerlink" title="现代web开发"></a>现代web开发</h2><p>这部分内容与实验室无关，仅作为前端开发的补充，有兴趣可以看一下。  </p>
+<p>因为nodejs的出现，现在的web开发涌现了一大批的自动化开发工具。  </p>
+<ul>
+<li>bower：前端包的管理器，管理jquery，bootstrap等前端框架</li>
+<li>grunt/gulp：用于重复操作的脚本化，你可以使用其插件压缩源代码，生成生产版本，添加浏览器前缀，监视文件，动态调试等</li>
+<li>yeoman：一个脚手架工具，使用其生成器可以很快的生成一个前端项目框架，安装grunt，bower，自动下载依赖包等。</li>
+<li>angularJs：google开发的前端库，可以动态绑定数据显示等。</li>
+<li>react：Facebook开发的前端组件库，可以定义组件方便重用，而且在大数据量的情况下速度很快。</li>
+</ul>
+<h2 id="前端笔试题目"><a href="#前端笔试题目" class="headerlink" title="前端笔试题目"></a>前端笔试题目</h2><ol>
+<li><p>使用js获取完整URL中的GET参数<br> input：完整URL<br> output：包含所有参数的对象<br> eg：  </p>
+<pre><code>input:https://www.baidu.com/s?word=test  
+output:{
+    word:&apos;test&apos;,
+}
+</code></pre></li>
+<li><p>使用js原型实现类的继承，在父类中定义方法，子类中可以调用即可（不限时间）</p>
+<pre><code>function Parent(name) {
+    this.name = name;
+    this.sayHello = function() {
+        console.log(&apos;Hello&apos;, this.name);
+    }
+}
+function Child(name) {
+    ...
+}
+
+var child = new Child(&apos;test&apos;);
+child.sayHello();
+</code></pre></li>
+</ol>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/05/15/python Virtualenv，virtualenvwrapper与pyenv/" itemprop="url">
+                  python Virtualenv，virtualenvwrapper与pyenv
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-15T15:12:31+08:00" content="2016-05-15">
+              2016-05-15
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h1 id="python-Virtualenv，virtualenvwrapper与pyenv"><a href="#python-Virtualenv，virtualenvwrapper与pyenv" class="headerlink" title="python Virtualenv，virtualenvwrapper与pyenv"></a>python Virtualenv，virtualenvwrapper与pyenv</h1><p>virtualenv是python的虚拟沙盒，而virtualenvwrapper是沙盒的管理工具；pyenv是python的版本管理，可以切换全局/局部python版本。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/18/Sublime Text/#more" rel="contents">
+            <a class="btn" href="/2016/05/15/python Virtualenv，virtualenvwrapper与pyenv/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -281,8 +704,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/16/apache2/" itemprop="url">
-                  Apache2笔记
+                <a class="post-title-link" href="/2016/05/15/nodejs/" itemprop="url">
+                  NodeJs笔记
                 </a>
               
             
@@ -292,8 +715,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-16T11:45:44+08:00" content="2016-03-16">
-              2016-03-16
+            <time itemprop="dateCreated" datetime="2016-05-15T12:18:50+08:00" content="2016-05-15">
+              2016-05-15
             </time>
           </span>
 
@@ -317,9 +740,9 @@
 
       
         
-          <h1 id="Apache2_u7B14_u8BB0"><a href="#Apache2_u7B14_u8BB0" class="headerlink" title="Apache2笔记"></a>Apache2笔记</h1><p>Apache作为Web Server三巨头之一，占有很大的市场份额，对于动态内容的解析支持很好，一般与nginx搭配使用。<br>
+          <h1 id="NodeJs笔记"><a href="#NodeJs笔记" class="headerlink" title="NodeJs笔记"></a>NodeJs笔记</h1>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/16/apache2/#more" rel="contents">
+            <a class="btn" href="/2016/05/15/nodejs/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -362,8 +785,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/12/git笔记/" itemprop="url">
-                  Git笔记
+                <a class="post-title-link" href="/2016/05/13/grunt/" itemprop="url">
+                  Grunt笔记
                 </a>
               
             
@@ -373,8 +796,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-12T19:25:24+08:00" content="2016-03-12">
-              2016-03-12
+            <time itemprop="dateCreated" datetime="2016-05-13T14:10:33+08:00" content="2016-05-13">
+              2016-05-13
             </time>
           </span>
 
@@ -398,9 +821,9 @@
 
       
         
-          <h1 id="Git_u7B14_u8BB0"><a href="#Git_u7B14_u8BB0" class="headerlink" title="Git笔记"></a>Git笔记</h1>
+          <h1 id="Grunt笔记"><a href="#Grunt笔记" class="headerlink" title="Grunt笔记"></a>Grunt笔记</h1><p>grunt是基于node的js构建工具。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/12/git笔记/#more" rel="contents">
+            <a class="btn" href="/2016/05/13/grunt/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -443,8 +866,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/12/Google Protocol Buffer笔记/" itemprop="url">
-                  Google Protocol Buffer笔记
+                <a class="post-title-link" href="/2016/05/13/bower/" itemprop="url">
+                  Bower笔记
                 </a>
               
             
@@ -454,8 +877,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-12T19:25:24+08:00" content="2016-03-12">
-              2016-03-12
+            <time itemprop="dateCreated" datetime="2016-05-13T13:50:16+08:00" content="2016-05-13">
+              2016-05-13
             </time>
           </span>
 
@@ -479,9 +902,9 @@
 
       
         
-          <h1 id="Google_Protocol_Buffer_u7B14_u8BB0"><a href="#Google_Protocol_Buffer_u7B14_u8BB0" class="headerlink" title="Google Protocol Buffer笔记"></a>Google Protocol Buffer笔记</h1><p>Protocol Buffer(以下简称PB)是google的一种数据交换的格式，它独立于语言，独立于平台，采用二进制进行数据存储，相较于xml更高效，但可读性差，原生API有Python，Java和C++，但正在不断被拓展。<br>
+          <h1 id="bower笔记"><a href="#bower笔记" class="headerlink" title="bower笔记"></a>bower笔记</h1><p>Bower是一个包管理程序，可以很方便的安装需要的文件。但是bower一般结合grunt一起使用，解决bower引用文件麻烦的局限性。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/12/Google Protocol Buffer笔记/#more" rel="contents">
+            <a class="btn" href="/2016/05/13/bower/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -524,8 +947,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/12/requirejs/" itemprop="url">
-                  requirejs笔记
+                <a class="post-title-link" href="/2016/05/11/gitlab/" itemprop="url">
+                  gitLab笔记
                 </a>
               
             
@@ -535,8 +958,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-12T15:32:02+08:00" content="2016-03-12">
-              2016-03-12
+            <time itemprop="dateCreated" datetime="2016-05-11T16:04:58+08:00" content="2016-05-11">
+              2016-05-11
             </time>
           </span>
 
@@ -560,9 +983,9 @@
 
       
         
-          <h1 id="requirejs_u7B14_u8BB0"><a href="#requirejs_u7B14_u8BB0" class="headerlink" title="requirejs笔记"></a>requirejs笔记</h1><p>requirejs是一个js三方插件，支持Js的CMD和AMD规范。<br>
+          <h1 id="gitLab笔记"><a href="#gitLab笔记" class="headerlink" title="gitLab笔记"></a>gitLab笔记</h1><p>gitLab是一个github的ruby实现，有打包好的安装包可以使用，也可以自己配置源码安装，但是很麻烦。我使用安装包安装失败，所以使用了源码安装。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/12/requirejs/#more" rel="contents">
+            <a class="btn" href="/2016/05/11/gitlab/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -605,8 +1028,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/11/新浪云应用（SAE）笔记/" itemprop="url">
-                  新浪云应用（SAE）笔记
+                <a class="post-title-link" href="/2016/05/06/chrome/" itemprop="url">
+                  Chrome笔记
                 </a>
               
             
@@ -616,8 +1039,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-11T16:06:20+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2016-05-06T18:43:38+08:00" content="2016-05-06">
+              2016-05-06
             </time>
           </span>
 
@@ -641,9 +1064,9 @@
 
       
         
-          <h1 id="u65B0_u6D6A_u4E91_u5E94_u7528_uFF08SAE_uFF09_u7B14_u8BB0"><a href="#u65B0_u6D6A_u4E91_u5E94_u7528_uFF08SAE_uFF09_u7B14_u8BB0" class="headerlink" title="新浪云应用（SAE）笔记"></a>新浪云应用（SAE）笔记</h1><p>SAE为新浪的云应用服务，允许用户部署自己的应用，免费用户会有带宽和流量限制。<br>
+          <h1 id="Chrome笔记"><a href="#Chrome笔记" class="headerlink" title="Chrome笔记"></a>Chrome笔记</h1><p>记录一些平时使用到的技巧或命令。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/11/新浪云应用（SAE）笔记/#more" rel="contents">
+            <a class="btn" href="/2016/05/06/chrome/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -686,8 +1109,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/11/nginx/" itemprop="url">
-                  Nginx笔记
+                <a class="post-title-link" href="/2016/03/28/react笔记/" itemprop="url">
+                  React笔记
                 </a>
               
             
@@ -697,8 +1120,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-11T14:51:23+08:00" content="2016-03-11">
-              2016-03-11
+            <time itemprop="dateCreated" datetime="2016-03-28T16:02:07+08:00" content="2016-03-28">
+              2016-03-28
             </time>
           </span>
 
@@ -722,9 +1145,9 @@
 
       
         
-          <h1 id="Nginx_u7B14_u8BB0"><a href="#Nginx_u7B14_u8BB0" class="headerlink" title="Nginx笔记"></a>Nginx笔记</h1><p>nginx作为WebServer对于静态内容有很高的处理效率，并且内置反向代理，负载均衡等功能，是一个很强大的web服务器。一般应用其反向代理将动态内容交给Apache处理，静态内容则由Nginx处理。<br>
+          <h1 id="React笔记"><a href="#React笔记" class="headerlink" title="React笔记"></a>React笔记</h1>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/11/nginx/#more" rel="contents">
+            <a class="btn" href="/2016/03/28/react笔记/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -767,8 +1190,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/03/08/Expect笔记/" itemprop="url">
-                  expect笔记
+                <a class="post-title-link" href="/2016/03/28/Less笔记/" itemprop="url">
+                  Less笔记
                 </a>
               
             
@@ -778,8 +1201,8 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-03-08T15:17:42+08:00" content="2016-03-08">
-              2016-03-08
+            <time itemprop="dateCreated" datetime="2016-03-28T11:12:57+08:00" content="2016-03-28">
+              2016-03-28
             </time>
           </span>
 
@@ -803,171 +1226,9 @@
 
       
         
-          <h1 id="expect_u7B14_u8BB0"><a href="#expect_u7B14_u8BB0" class="headerlink" title="expect笔记"></a>expect笔记</h1><p>expect是一个简单的工具语言，如要工作就是进行自动化的人机交互。它的作者对Expect的定义：是一个实现自动交互功能的软件套件（a software suite for automating interactive tools）,使用expect，它能帮助我们在合适的情景下进行合适的交互。<br>
+          <h1 id="Less笔记"><a href="#Less笔记" class="headerlink" title="Less笔记"></a>Less笔记</h1><p>Less是一个CSS预处理语言，在Less中可以使用变量，函数，嵌套等特性，方便维护，Bootstrap源码使用了该工具。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/03/08/Expect笔记/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/05/Ubuntu笔记/" itemprop="url">
-                  Ubuntu笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            發表於
-            <time itemprop="dateCreated" datetime="2016-01-05T15:17:42+08:00" content="2016-01-05">
-              2016-01-05
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="Ubuntu_u7B14_u8BB0"><a href="#Ubuntu_u7B14_u8BB0" class="headerlink" title="Ubuntu笔记"></a>Ubuntu笔记</h1><p>杂记。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/05/Ubuntu笔记/#more" rel="contents">
-              閱讀全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/01/01/Thrift笔记/" itemprop="url">
-                  Thrift笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            發表於
-            <time itemprop="dateCreated" datetime="2016-01-01T15:17:42+08:00" content="2016-01-01">
-              2016-01-01
-            </time>
-          </span>
-
-          
-
-          
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="Thrift_u7B14_u8BB0"><a href="#Thrift_u7B14_u8BB0" class="headerlink" title="Thrift笔记"></a>Thrift笔记</h1><p>Apache Thrift采用接口描述语言定义并创建服务，支持可扩展的跨语言服务开发，所包含的代码生成引擎可以在多种语言中，如 C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, Smalltalk 等创建高效的、无缝的服务，其传输数据采用二进制格式，相对 XML 和 JSON 体积更小，对于高并发、大数据量和多语言的环境更有优势。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/01/Thrift笔记/#more" rel="contents">
+            <a class="btn" href="/2016/03/28/Less笔记/#more" rel="contents">
               閱讀全文 &raquo;
             </a>
           </div>
@@ -994,7 +1255,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1035,7 +1296,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">30</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1049,7 +1310,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">23</span>
+              <span class="site-state-item-count">35</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

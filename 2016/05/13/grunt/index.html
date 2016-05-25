@@ -1,0 +1,820 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="grunt," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Grunt笔记grunt是基于node的js构建工具。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Grunt笔记">
+<meta property="og:url" content="http://yoursite.com/2016/05/13/grunt/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="Grunt笔记grunt是基于node的js构建工具。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。">
+<meta property="og:updated_time" content="2016-05-19T12:37:34.986Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Grunt笔记">
+<meta name="twitter:description" content="Grunt笔记grunt是基于node的js构建工具。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Grunt笔记 | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Grunt笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-05-13T14:10:33+08:00" content="2016-05-13">
+              2016-05-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Grunt笔记"><a href="#Grunt笔记" class="headerlink" title="Grunt笔记"></a>Grunt笔记</h1><p>grunt是基于node的js构建工具。对于需要反复重复的任务，例如压缩（minification）、编译、单元测试、linting等，自动化工具可以减轻你的劳动，简化你的工作。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>nodeJs</p>
+<pre><code># 安装 CLI
+npm install grunt-cli
+</code></pre><p>  注意，安装grunt-cli并不等于安装了Grunt！Grunt CLI的任务很简单：调用与Gruntfile在同一目录中 Grunt。这样带来的好处是，允许你在同一个系统上同时安装多个版本的 Grunt，每个项目使用自己目录下的Grunt。</p>
+<p>  在你的项目文件夹下安装grunt，并添加到依赖列表。</p>
+<pre><code>npm install grunt --save
+</code></pre></li>
+</ul>
+<h2 id="Gruntfile-js"><a href="#Gruntfile-js" class="headerlink" title="Gruntfile.js"></a>Gruntfile.js</h2><p>Gruntfile.js是grunt的配置文件，该文件定义了多个任务并对任务进行配置，使其满足不同的需求；grunt运行时会默认查找该文件。<br>一个简单的文件示例：</p>
+<pre><code>&apos;use strict&apos;;    // 使用严格模式，可选
+// 遵循cmd规范，声明为一个包
+module.exports = function(grunt){
+
+    // 配置对象，自定义，放在最前面方便修改和查看
+    var config = {
+        app:&apos;app&apos;,
+        dist:&apos;dist&apos;,
+    };
+
+    // 初始化配置，每项名称可以被看做为任务名
+    grunt.initConfig({
+        // 传入先前定义的配置变量
+        config:config,
+        // 使用内置函数读取json文件为属性
+        pkg: grunt.file.readJSON(&apos;package.json&apos;),
+
+        // copy任务的定义与配置
+        copy:{
+            // 插件配置，可选，用来控制插件，覆盖其配置的默认值
+            options: {},
+            // copy任务的html对象，可以认为是对html的拷贝
+            html:{
+                // copy插件配置，可选，优先级高于任务级
+                options: {},
+                // 指明源文件，这里使用内置模板调用了config.app的值
+                src:&apos;&lt;%= config.app %&gt;/index.html&apos;,
+                // 指明，目的文件
+                dest:&apos;&lt;%= config.dist %&gt;/index.html&apos;,
+            }
+        },
+        // clean任务的定义与配置
+        clean:{
+            html:{
+                // 因为是删除操作，只需要源文件即可
+                src:&apos;&lt;%= config.dist %&gt;/index.html&apos;,
+            }
+        },
+    });
+    // 加载插件，加载完成就可以用grunt copy执行任务了
+    grunt.loadNpmTasks(&apos;grunt-contrib-copy&apos;);
+    grunt.loadNpmTasks(&apos;grunt-contrib-clean&apos;);
+
+    // 注册任务，这里一般用来将多个任务结合起来，当执行build任务时，clean，copy会先后被调用
+    grunt.registerTask(&apos;build&apos;, [&apos;clean&apos;,&apos;copy&apos;]);
+};
+</code></pre><h2 id="运行任务"><a href="#运行任务" class="headerlink" title="运行任务"></a>运行任务</h2><p>运行任务时，请确保grunt和其使用的插件全部被安装。  </p>
+<ol>
+<li><p>执行默认任务<br> 当注册一个名为<code>default</code>的任务后，在项目文件夹执行<code>grunt</code>，default任务就会被执行。</p>
+<pre><code>// 定义default任务
+grunt.registerTask(&apos;default&apos;, [&apos;jshint&apos;, &apos;qunit&apos;, &apos;concat&apos;, &apos;uglify&apos;]);
+
+# 执行grunt任务
+$ grunt
+</code></pre></li>
+<li><p>指定任务名<br> 这里的任务名可以是初始化配置时的属性，也可以是注册的任务别名。</p>
+<pre><code>// 属性名
+grunt.initConfig({
+    // clean任务
+    clean:{
+        html:{
+            src:&apos;index.html&apos;,
+        }
+    },
+})
+
+// 注册的任务别名
+grunt.registerTask(&apos;build&apos;, [&apos;clean&apos;, &apos;build&apos;]);
+
+# 执行任务
+$ grunt clean
+$ grunt build
+</code></pre></li>
+<li><p>指定目标<br> 目标是相对于任务的，即任务的目标。grunt默认会将任务中所有的目标任务都执行，指定目标后仅执行指定目标的任务。</p>
+<pre><code>// 定义具有html和css两个目标的copy任务
+grunt.initConfig({
+    copy:{
+        html:{
+            src:&apos;app/index.html&apos;,
+            dest:&apos;app/index.html&apos;,
+        },
+        css:{
+            src:&apos;app/main.css&apos;,
+            dest:&apos;app/main.css&apos;,
+        },
+    },
+})
+
+# 仅拷贝html
+$ grunt copy:html
+
+# 仅拷贝css
+$ grunt copy:css
+</code></pre></li>
+</ol>
+<h2 id="文件配置"><a href="#文件配置" class="headerlink" title="文件配置"></a>文件配置</h2><p>大多的任务都是执行文件操作，Grunt有一个强大的抽象层用于声明任务应该操作哪些文件。这里有好几种定义src-dest(源文件-目标文件)文件映射的方式，均提供了不同程度的描述和控制操作方式。  </p>
+<h3 id="声明源文件和目标文件"><a href="#声明源文件和目标文件" class="headerlink" title="声明源文件和目标文件"></a>声明源文件和目标文件</h3><ol>
+<li><p>简洁格式<br> 使用<code>src</code>和<code>dest</code>指明源文件和目的文件，可以为字符串和数组。一般用于只需要指定单个属性（src或dest）的任务。</p>
+<pre><code>grunt.initConfig({
+  concat: {
+    bar: {
+      src: [&apos;src/bb.js&apos;, &apos;src/bbb.js&apos;],
+      dest: &apos;dest/b.js&apos;,
+    },
+  },
+});
+</code></pre></li>
+<li><p>文件对象格式<br> 使用files属性的键值来指明源文件和目的文件，键只能为字符串，值可以为字符串或数组，一般用来指明一对多的关系。</p>
+<pre><code>grunt.initConfig({
+  concat: {
+    foo: {
+      files: {
+        &apos;dest/a.js&apos;: [&apos;src/aa.js&apos;, &apos;src/aaa.js&apos;],
+        &apos;dest/a1.js&apos;: [&apos;src/aa1.js&apos;, &apos;src/aaa1.js&apos;],
+      },
+    }
+  },
+});
+</code></pre></li>
+<li><p>文件数组格式<br> files属性为多个字典的数组，可以用来指明多对多的关系。</p>
+<pre><code>grunt.initConfig({
+  concat: {
+    foo: {
+      files: [
+        {src: [&apos;src/aa.js&apos;, &apos;src/aaa.js&apos;], dest: &apos;dest/a.js&apos;},
+        {src: [&apos;src/aa1.js&apos;, &apos;src/aaa1.js&apos;], dest: &apos;dest/a1.js&apos;},
+      ],
+    },
+  },
+});
+</code></pre></li>
+</ol>
+<h3 id="通配符"><a href="#通配符" class="headerlink" title="通配符"></a>通配符</h3><p>文件的指定可以使用通配符来进行匹配，支持的通配符：</p>
+<ul>
+<li><ul>
+<li>匹配任意数量的字符，但不匹配 /</li>
+</ul>
+</li>
+<li>? 匹配单个字符，但不匹配 /</li>
+<li>** 匹配任意数量的字符，包括 /，只要它是路径中唯一的一部分</li>
+<li>{} 允许使用一个逗号分割的“或”表达式列表</li>
+<li>! 在模式的开头用于排除一个匹配模式所匹配的任何文件</li>
+</ul>
+<h2 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h2><table>
+<thead>
+<tr>
+<th>插件名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>load-grunt-tasks</td>
+<td>用于任务的加载</td>
+</tr>
+<tr>
+<td>grunt-contrib-copy</td>
+<td>拷贝文件</td>
+</tr>
+<tr>
+<td>grunt-contrib-clean</td>
+<td>文件删除</td>
+</tr>
+<tr>
+<td>grunt-contrib-uglify</td>
+<td>压缩JS文件</td>
+</tr>
+<tr>
+<td>grunt-contrib-qunit</td>
+<td>测试html文件</td>
+</tr>
+<tr>
+<td>grunt-contrib-concat</td>
+<td>合并多个js文件</td>
+</tr>
+<tr>
+<td>grunt-contrib-jshint</td>
+<td>检测js文件语法和代码风格</td>
+</tr>
+<tr>
+<td>grunt-contrib-watch</td>
+<td>监视指定的文件，改动时执行指定任务</td>
+</tr>
+<tr>
+<td>grunt-contrib-sass</td>
+<td>将scss/sass文件编译为css文件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.gruntjs.net/" target="_blank" rel="external">grunt中文网站</a></li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/grunt/" rel="tag">#grunt</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/13/bower/" rel="next" title="Bower笔记">
+                <i class="fa fa-chevron-left"></i> Bower笔记
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/15/nodejs/" rel="prev" title="NodeJs笔记">
+                NodeJs笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Grunt笔记"><span class="nav-number">1.</span> <span class="nav-text">Grunt笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Gruntfile-js"><span class="nav-number">1.2.</span> <span class="nav-text">Gruntfile.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行任务"><span class="nav-number">1.3.</span> <span class="nav-text">运行任务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件配置"><span class="nav-number">1.4.</span> <span class="nav-text">文件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明源文件和目标文件"><span class="nav-number">1.4.1.</span> <span class="nav-text">声明源文件和目标文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通配符"><span class="nav-number">1.4.2.</span> <span class="nav-text">通配符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件"><span class="nav-number">1.5.</span> <span class="nav-text">插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

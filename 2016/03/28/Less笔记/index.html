@@ -1,0 +1,952 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="less," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Less笔记Less是一个CSS预处理语言，在Less中可以使用变量，函数，嵌套等特性，方便维护，Bootstrap源码使用了该工具。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Less笔记">
+<meta property="og:url" content="http://yoursite.com/2016/03/28/Less笔记/index.html">
+<meta property="og:site_name" content="Hello, World">
+<meta property="og:description" content="Less笔记Less是一个CSS预处理语言，在Less中可以使用变量，函数，嵌套等特性，方便维护，Bootstrap源码使用了该工具。">
+<meta property="og:updated_time" content="2016-03-28T03:18:36.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Less笔记">
+<meta name="twitter:description" content="Less笔记Less是一个CSS预处理语言，在Less中可以使用变量，函数，嵌套等特性，方便维护，Bootstrap源码使用了该工具。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'hide',
+    motion: true
+  };
+</script>
+
+  <title> Less笔记 | Hello, World </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Hello, World</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Less笔记
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-03-28T11:12:57+08:00" content="2016-03-28">
+              2016-03-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="Less笔记"><a href="#Less笔记" class="headerlink" title="Less笔记"></a>Less笔记</h1><p>Less是一个CSS预处理语言，在Less中可以使用变量，函数，嵌套等特性，方便维护，Bootstrap源码使用了该工具。<br><a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ul>
+<li><p>浏览器</p>
+<ol>
+<li>下载<a href="https://github.com/less/less.js" target="_blank" rel="external">Less</a>源码，解压压缩版本<code>less.js/dist/less.min.js</code>.</li>
+<li><p>在页面中引入<code>Less.js</code>，它会把页面中所有less文件解析为css后压入页面。</p>
+<pre><code>&lt;script src=&quot;less.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>引入你的Less文件，注意<code>rel</code>属性设置为<code>stylesheet/less</code>.</p>
+<pre><code>&lt;link rel=&quot;stylesheet/less&quot; type=&quot;text/css&quot; href=&quot;styles.less&quot; /&gt;
+</code></pre><p>注意：</p>
+</li>
+</ol>
+<ul>
+<li>所有Less文件应该在Less.js之前加载，否则less.js不会解析在其之后的less文件。</li>
+<li><p>配置Less.js<br>有三种方式可以配置Less.js，全局变量，Script标签变量和link标签变量<br>优先级：全局变量 &lt; Script标签变量 &lt; link标签变量  </p>
+<ul>
+<li><p>全局变量<br>在引入less.js之前引入less全局变量来配置它。</p>
+<pre><code>&lt;script&gt;
+  less = {
+    env: &quot;development&quot;,
+  };
+&lt;/script&gt;
+&lt;script src=&quot;less.min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>标签变量<br>使用标签引入配置时，需要加data前缀，而且将驼峰命名改为短线，eg:<code>logLevel -&gt; data-log-level</code>。<br>非字符串的值必须符合json格式，并且需要浏览器支持JSON.parse()，eg：</p>
+<pre><code>data-global-vars=&apos;{ &quot;myvar&quot;: &quot;#ddffee&quot;, &quot;mystr&quot;: &quot;\&quot;quoted\&quot;&quot; }&apos;
+</code></pre><ul>
+<li><p>Script标签变量<br>在引入less.js文件的script标签上添加数据属性也可以来配置它。</p>
+<pre><code>&lt;script src=&quot;less.min.js&quot; data-env=&quot;development&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+</code></pre></li>
+<li><p>link标签变量<br>与script标签类似但只支持<code>render time</code>配置项</p>
+<pre><code>&lt;link data-env=&quot;development&quot; href=&quot;less/styles.less&quot;&gt;
+</code></pre></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>API<br>允许通过js对less进行有限的操作。</p>
+<ul>
+<li><p>监视模式 - watch()<br>当启用监视模式后，js会监视less文件，每当less文件变化会自动刷新客户端。<br>启用监视器需要less的<code>env</code>配置项为<code>development</code>。<br>两种方式启用监视模式。  </p>
+<ul>
+<li><p>js<br>在引入less.js后，执行<code>less.watch()</code>即可启用监视模式。</p>
+<pre><code>&lt;script&gt;less.watch();&lt;/script&gt;
+</code></pre></li>
+<li><p>url<br>在网页url中添加hash-<code>#!watch</code>来启用监视模式</p>
+<pre><code>http://127.0.0.1/index.html#!watch
+</code></pre></li>
+</ul>
+</li>
+<li><p>编辑less变量 - modifyVars()<br>允许使用js编辑less的内部变量，变量改变后，less会自动编译，无需重载。</p>
+<pre><code>less.modifyVars({
+  &apos;@buttonFace&apos;: &apos;#5B83AD&apos;,
+  &apos;@buttonText&apos;: &apos;#D9EEF2&apos;
+});
+</code></pre></li>
+</ul>
+</li>
+<li><p>选项</p>
+<ul>
+<li>async [false]<br>是否异步加载import的文件，添加<code>async</code>选项。</li>
+<li>fileAsync [false]<br>当使用<code>file://</code>协议时，是否异步获取import的文件。</li>
+<li>dumpLineNumbers [‘’]<br>向生成的css文件中添加生成每条规则语句的行号(less文件中的行)。<ul>
+<li>‘comments’<br>添加行号和注释。</li>
+<li>‘mediaquery’<br>与火狐插件相关。  </li>
+<li>‘all’<br>以上两项</li>
+</ul>
+</li>
+<li>env<br>默认值取决于url，当使用<code>file://</code>协议，使用本地地址(127.0.0.1 or localhost)或不是80端口，会自动设置为<code>development</code>；其他则是<code>production</code>。<ul>
+<li>‘production’：css缓存在本地，终端不会显示less编译的信息</li>
+<li>‘development’:显示编译相关信息。</li>
+</ul>
+</li>
+<li>errorReporting [‘html’]<br>html | console | function<br>当编译错误时，错误的显示方法。</li>
+<li><p>functions {}<br>定义可以在less文件中使用的函数。</p>
+<pre><code>less = {
+    functions: {
+        // 使用myfunc()函数
+        myfunc: function() {
+            return new(less.tree.Dimension)(1);
+        }
+    }
+};
+</code></pre></li>
+<li>logLevel [2]<br>定义终端的信息输出等级，如果是<code>production</code>模式，不会输出任何信息。<ul>
+<li>0<br>无输出</li>
+<li>1<br>只输出错误</li>
+<li>2<br>输出错误和额外信息</li>
+</ul>
+</li>
+<li>poll [1000]<br>如果是监视模式，定义两次请求比较文件的间隔，但未是ms。</li>
+<li>relativeUrls [false]<br>import的文件是否使用相对路径，false-是，true-否。</li>
+<li><p>globalVars [undefined]<br>定义相对于less的全局变量，在less文件中可以覆盖该处定义。</p>
+<pre><code>less.globalVars = { myvar: &quot;#ddffee&quot;, mystr: &quot;\&quot;quoted\&quot;&quot; };
+</code></pre></li>
+<li>modifyVars [undefined]<br>编辑less的内部变量，变量改变后，less会自动编译，无需重载。</li>
+<li>rootpath [false]<br>添加到每个资源头部的地址。</li>
+<li>useFileCache [true]<br>缓存less文件，这样，调用modifyVars等属性时不会再次请求。</li>
+</ul>
+</li>
+<li><p>函数<br><a href="http://www.1024i.com/demo/less/reference.html" target="_blank" rel="external">http://www.1024i.com/demo/less/reference.html</a></p>
+</li>
+</ul>
+</li>
+<li>NodeJs</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>定义全局变量可以方便后续维护，并且可以使用局部变量来覆盖全局变量。</p>
+<pre><code>//变量定义
+@baseColor : #4D926E;
+//使用变量
+a {
+    font-color : @baseColor;
+}
+</code></pre><ul>
+<li><p>变量可以连续解析</p>
+<pre><code>a : 13;
+b : &apos;a&apos;;
+content : @@b; //13
+</code></pre></li>
+<li><p>变量的查找是当前作用域最后被赋予的值；若当前作用域没有定义，则搜索父作用域，直至找到该变量。</p>
+<pre><code>@var: 0;
+.class1 {
+    @var: 1;
+    .class {
+        @var: 2;
+        //最后定义是下一行
+        three: @var;
+        @var: 3;
+    }
+    one: @var;
+}
+</code></pre></li>
+<li><p>变量替换的解析是普通变量解析的重复；先解析第一个变量，再从当前作用域开始解析被替换的变量</p>
+<pre><code>.lazy-eval-scope {
+    // %9
+    width: @var;
+    @a: 9%;
+}
+
+@var: @a;
+@a: 100%;
+</code></pre></li>
+</ul>
+<h3 id="混合（Mixins）"><a href="#混合（Mixins）" class="headerlink" title="混合（Mixins）"></a>混合（Mixins）</h3><p>Less允许直接嵌入类或函数来实现代码复用，因为函数内容较多另起一段。</p>
+<pre><code>//定义一个类
+.bordered {
+    border-top: dotted 1px black;
+    border-bottom: solid 2px black;
+}
+#test {
+    color: #111;
+    //直接套用类，bordered的所有属性会被附加到里面
+    .bordered;
+}
+</code></pre><ul>
+<li><p>复用嵌套内部的类</p>
+<pre><code>#test {
+    color: #111;
+    // 定义内部类
+    .bordered {
+        border-top: dotted 1px black;
+        border-bottom: solid 2px black;
+    }
+}
+.test {
+    // 复用嵌套内部的类
+    #test &gt; .bordered;
+}
+</code></pre></li>
+<li><p>关于important<br>  在混合后面添加!important参数表示该混合中的所有属性都添加important</p>
+<pre><code>.mixin {
+    // 混合中所有的属性都加important
+    .rounded-corners !important;
+}
+</code></pre></li>
+</ul>
+<h3 id="嵌套"><a href="#嵌套" class="headerlink" title="嵌套"></a>嵌套</h3><p>Less允许在某一项下面嵌套来实现子类选择器。</p>
+<pre><code>#test {
+    // 编译为 #test a{}
+    a {
+        // 编译为#test a:hover
+        &amp;:hover {
+            border-width: 1px;
+        }
+    }
+}
+</code></pre><ul>
+<li><p>关于&amp;<br>  我理解的&amp;代表父级的所有元素，当父级元素是用逗号隔开的多个元素时，&amp;则是其迭代。</p>
+<pre><code>a {
+    // 编译为#test a:hover
+    &amp;:hover {}
+    // 编译为 .parent #test
+    .parent&amp;{}
+}
+// 多个则迭代
+#test , .class {
+    //编译为
+    // #test + #test {}
+    // #test + .class {}
+    // .class + .class {}
+    // .class + #test  {}
+    &amp; + &amp; {}
+}
+</code></pre></li>
+</ul>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>带有参数的混合。</p>
+<ul>
+<li><p>函数名可以是类或者ID，但不可以是纯字符串的函数名。</p>
+<pre><code>// 正确
+#test(@radius: 5px) {
+    border-radius: @radius;
+}
+// 正确
+.test(@radius: 5px) {
+    border-radius: @radius;
+}
+// 错误
+test(@radius: 5px) {
+    border-radius: @radius;
+}
+</code></pre></li>
+<li><p>带有参数的函数并不会作为样式应用于相关类上</p>
+<pre><code>// 其带有参数，test类不会具有圆角
+.test(@radius: 5px) {
+    border-radius: @radius;
+}
+// 该行代码才使其具有了圆角
+.test(@radius: 5px) {
+    .test;
+}
+</code></pre></li>
+<li><p>使用混合时，所有符合参数要求的函数都会被使用</p>
+<pre><code>// 定义一参无默认值的类
+.test(){
+    font-size : 11px;
+}
+// 定义二参有默认值的类
+.test(@a,@b : 20px){
+    color : @a;
+    font-size : @b;
+}
+#test {
+    //上面的两个类都会被应用到此处
+    .test(20);
+}
+</code></pre></li>
+<li><p>调用类时参数个数的计算<br>  参数的分隔符可以是’,’或’;’,且分号的优先级要高于逗号，当传参里有分号，则分隔符为分号，没有则为逗号。</p>
+<pre><code>// 三个参数，逗号此处为一组值的分割符而不是参数分隔符
+.name(1, 2, 3; a, b)；
+// 三个参数
+.name(1, 2, 3)；
+</code></pre></li>
+<li><p>参数可以有默认值</p>
+<pre><code>//设置默认值
+.rounded-corners (@radius: 5px) {
+    border-radius: @radius;
+}
+#test {
+//使用默认值的类
+.rounded-corners；
+//覆盖默认值
+.rounded-corners (10px)
+}
+</code></pre></li>
+<li><p>关于@arguments和@rest<br>  @arguments包含了传入的所有变量，可以用来快速设置有多个值的属性。</p>
+<pre><code>.box-shadow (@x, @y, @blur, @color) {
+    box-shadow: @arguments;
+}
+</code></pre><p>  如果在一个变量后面添加’…’，即代表该参数代表在此往后的所有参数</p>
+<pre><code>.mixin (@a, @rest...) {
+    // @rest 表示 @a 之后的参数
+    // @arguments 表示所有参数
+}
+</code></pre></li>
+<li><p>函数写死第一个参数来控制函数行为<br>  若函数定义时第一个参数并不是变量，而是值，则调用时该参数与值相等才可以匹配该函数。</p>
+<pre><code>// 当第一个参数是dark时，这条规则才会被应用
+.mixin (dark, @color) {
+    color: darken(@color, 10%);
+}
+</code></pre></li>
+</ul>
+<h3 id="Guards表达式"><a href="#Guards表达式" class="headerlink" title="Guards表达式"></a>Guards表达式</h3><p>类似if/else语句，仅仅是为了符合CSS风格，设计成when。<br>支持的比较符：大于(&gt;)，大于等于(&gt;=)，等于(=)，小于等于(&lt;=)，小于(&lt;)。</p>
+<pre><code>// 当参数大于5回应用该规则
+.mixin (@a) when (@a &gt;= 5) {
+    background-color: black;
+}
+</code></pre><ul>
+<li><p>并列条件，逗号<br>  Less并没有or关键字，使用’，’来分割条件，只要有一个为true，则应用规则。</p>
+<pre><code>// 参数大于10或小于-10
+.mixin (@a) when (@a &gt; 10), (@a &lt; -10) {}
+</code></pre></li>
+<li><p>and 和 not<br>  Less里有and 和not关键字，来实现’和’与’非’。</p>
+<pre><code>// 参数大于10且小于20
+.mixin (@a) when (@a &gt; 10) and (@a &lt; 20) {}
+// 参数不小于10
+.mixin (@a) when not(@a &gt; 10){}
+</code></pre></li>
+<li><p>关于’真’和’true’<br>  Less里面唯一一个是真的值，其他都为假。</p>
+<pre><code>// 一下两个等价
+.truth (@a) when (@a) {}
+.truth (@a) when (@a = true) {}
+</code></pre><h3 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h3><p>Less允许导入其他less文件和css文件，只要不是以css结尾的文件都会被认为是less文件。<br>Less会首先将import提到当前作用域顶部，然后将import的less文件原样添加到该处，一起编译；并不会去改变css。</p>
+<p>  @import “lib.css”;</p>
+</li>
+<li><p>带有媒体查询的import<br>  该文件下所有规则都会在该媒体查询内部。</p>
+<pre><code>@import &quot;library.less&quot; screen and (max-width: 400px);
+</code></pre></li>
+<li><p>强制指定处理方式 - css | less</p>
+<pre><code>@import (css) &quot;lib&quot;;
+@import (less) &quot;lib.css&quot;;
+</code></pre></li>
+<li><p>字符串连接变量<br>  使用{}括住变量，以防混淆。</p>
+<pre><code>background-image: url(&quot;@{base-url}/images/bg.png&quot;);
+</code></pre></li>
+<li><p>关于<code>~</code>-避免编译<br>  在css语句前添加<code>~</code>可以 使less不编译该语句。</p>
+<pre><code>.class {
+    filter: ~&quot;ms:alwaysHasItsOwnSyntax.For.Stuff()&quot;;
+}
+</code></pre></li>
+<li><p>选择器插值-使用变量指定选择器</p>
+<pre><code>@name: blocked;
+.@{name} {
+    color: black;
+}
+</code></pre></li>
+<li><p>Less可以使用js</p>
+<pre><code>@height: `document.body.clientHeight`;
+</code></pre></li>
+</ul>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
+<li><a href="http://www.1024i.com/demo/less/document.html" target="_blank" rel="external">Less中文网</a></li>
+<li><a href="http://www.bootcss.com/p/lesscss/" target="_blank" rel="external">Less中文</a></li>
+<li><a href="https://github.com/less/less.js" target="_blank" rel="external">GitHub项目地址</a></li>
+<li><a href="http://less.bootcss.com/functions/" target="_blank" rel="external">函数参考地址</a></li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/less/" rel="tag">#less</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/18/Sublime Text/" rel="next" title="Sublime Text使用">
+                <i class="fa fa-chevron-left"></i> Sublime Text使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/28/react笔记/" rel="prev" title="React笔记">
+                React笔记 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/uploads/avatar.jpg" alt="LQL" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">LQL</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description"></p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分類</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">標籤</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Less笔记"><span class="nav-number">1.</span> <span class="nav-text">Less笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">1.2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#混合（Mixins）"><span class="nav-number">1.2.2.</span> <span class="nav-text">混合（Mixins）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌套"><span class="nav-number">1.2.3.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">1.2.4.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guards表达式"><span class="nav-number">1.2.5.</span> <span class="nav-text">Guards表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引入"><span class="nav-number">1.2.6.</span> <span class="nav-text">引入</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LQL</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+    
+
+  
+
+
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
