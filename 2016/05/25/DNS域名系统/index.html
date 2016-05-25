@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hello, World" />
+  <meta name="keywords" content="dns," />
 
 
 
@@ -51,16 +51,16 @@
 
 
 
-<meta name="description" content="DNS域名系统概述DNS服务DNS是Domain Name System 的缩写，即域名系统。DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。DNS是一套分布式">
+<meta name="description" content="DNS域名系统">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello, World">
+<meta property="og:title" content="DNS笔记">
 <meta property="og:url" content="http://yoursite.com/2016/05/25/DNS域名系统/index.html">
 <meta property="og:site_name" content="Hello, World">
-<meta property="og:description" content="DNS域名系统概述DNS服务DNS是Domain Name System 的缩写，即域名系统。DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。DNS是一套分布式">
-<meta property="og:updated_time" content="2016-05-11T06:15:58.000Z">
+<meta property="og:description" content="DNS域名系统">
+<meta property="og:updated_time" content="2016-05-25T10:45:18.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello, World">
-<meta name="twitter:description" content="DNS域名系统概述DNS服务DNS是Domain Name System 的缩写，即域名系统。DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。DNS是一套分布式">
+<meta name="twitter:title" content="DNS笔记">
+<meta name="twitter:description" content="DNS域名系统">
 
 
 
@@ -72,7 +72,7 @@
   };
 </script>
 
-  <title>  | Hello, World </title>
+  <title> DNS笔记 | Hello, World </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -192,7 +192,7 @@
             
             
               
-                
+                DNS笔记
               
             
           </h1>
@@ -201,7 +201,7 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-05-25T18:07:51+08:00" content="2016-05-25">
+            <time itemprop="dateCreated" datetime="2016-05-25T18:45:04+08:00" content="2016-05-25">
               2016-05-25
             </time>
           </span>
@@ -225,7 +225,8 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="DNS服务"><a href="#DNS服务" class="headerlink" title="DNS服务"></a>DNS服务</h3><p>DNS是Domain Name System 的缩写，即域名系统。<br>DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。<br>形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。<br>DNS是一套分布式的域名服务系统，每个DNS服务器上都存放着大量的机器名和IP地址的映射，并且是动态更新的，众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。</p>
+        <span itemprop="articleBody"><h1 id="DNS域名系统"><a href="#DNS域名系统" class="headerlink" title="DNS域名系统"></a>DNS域名系统</h1><a id="more"></a>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="DNS服务"><a href="#DNS服务" class="headerlink" title="DNS服务"></a>DNS服务</h3><p>DNS是Domain Name System 的缩写，即域名系统。<br>DNS服务主要功能是将域名转换为相应的IP地址，提供DNS服务的系统就是DNS服务器。<br>形如它能够把www.baidu.com这样的域名转换为61.135.169.125这样的IP地址;没有DNS，浏览baidu.com这个网站时，就必须用61.135.169.125这么难记的数字来访问。<br>DNS是一套分布式的域名服务系统，每个DNS服务器上都存放着大量的机器名和IP地址的映射，并且是动态更新的，众多网络客户端程序都使用DNS协议来向DNS服务器查询目标主机的IP地址。</p>
 <h3 id="DNS服务器分类"><a href="#DNS服务器分类" class="headerlink" title="DNS服务器分类"></a>DNS服务器分类</h3><p>DNS服务器可以分为3种，即主域名服务器(Master DNS)、辅助域名服务器(Slave DNS)、缓存服务器。</p>
 <ul>
 <li>Master DNS:即权威DNS服务器，本身提供DNS服务，并且本身含有区域数据文件；主DNS服务器可以修改记录；</li>
@@ -385,6 +386,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/dns/" rel="tag">#dns</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
@@ -397,6 +404,10 @@
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/25/搭建ss及使用/" rel="prev" title="ss笔记">
+                ss笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -464,7 +475,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -478,7 +489,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
