@@ -27,12 +27,12 @@
 
     var baiduGeolocation = new BMap.Geolocation();
     baiduGeolocation.getCurrentPosition(function(r){
-        console.log(r);
+        console.log('百度地图定位成功:',r);
         if(this.getStatus() == BMAP_STATUS_SUCCESS){
             var mk = new BMap.Marker(r.point);
             baiduMap.addOverlay(mk);
             baiduMap.panTo(r.point);
-            baiduMap.centerAndZoom(r.point,12);
+            baiduMap.centerAndZoom(mk,12);
         }else {
             var codeMap = {
                 BMAP_STATUS_SUCCESS: '检索成功',
