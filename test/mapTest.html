@@ -89,12 +89,12 @@
         });
         gaodeMap.addControl(gaodeGeolocation);
         gaodeGeolocation.getCurrentPosition();
-        AMap.event.addListener(geolocation, 'complete', function(data) {
+        AMap.event.addListener(gaodeGeolocation, 'complete', function(data) {
             console.log('高德地图定位成功');
             console.log('经度：' , data.position.getLng());
             console.log('纬度：' , data.position.getLat());
         });
-        AMap.event.addListener(geolocation, 'error', function(e){
+        AMap.event.addListener(gaodeGeolocation, 'error', function(e){
             console.log('高德地图定位失败',e);
         });
     });
