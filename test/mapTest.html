@@ -23,6 +23,8 @@
 
     // 百度地图API功能
     var baiduMap = new BMap.Map("baidu_map");
+    var point = new BMap.Point(116.331398,39.897445);
+    baiduMap.centerAndZoom(point,12);
     baiduMap.enableScrollWheelZoom(true);
 
     var baiduGeolocation = new BMap.Geolocation();
