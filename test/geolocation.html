@@ -1,0 +1,98 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+</head>
+<body>
+<div id="test"></div>
+<script>
+var console = {
+	log : function(msg){
+		if('string' == typeof msg){
+			document.getElementById('test').innerHTML += '<br>' + msg; 
+		}else if(msg['coords']){
+			for(var i in msg['coords']){
+				document.getElementById('test').innerHTML += '<br>' + i + ':' + msg['coords'][i] + '<br>'; 
+			}
+		}
+	}
+}
+getLocation();
+// var watchId = navigator.geolocation.watchPosition(updateLocation, handleLocationError); 
+//  // 基于持续更新的位置信息实现一些功能…
+//  // 停止接收位置更新消息
+//  navigator.geolocation.clearWatch(watchId);
+function getLocation(){
+  if (navigator.geolocation)
+  {
+  	navigator.geolocation.getCurrentPosition(showHandle,errorHandle,{
+  		// 启用高精度模式，耗费资源较多
+  		enableHighAccuracy : true,
+  		// 默认不超时
+  		timeout : Infinity,
+  		// 获取位置的间隔，0 - 只获取一次
+  		maximumAge : 0
+  	})
+	}
+}
+function showHandle(position)
+{
+	// latitude（纬度）
+	// longitude（经度）
+	// accuracy（准确度）
+	// altitude – 海拔高度，以 m 为单位；
+	// altitudeAccuracy – 海拔高度的准确度，以 m 为单位；
+	// heading – 行进方向，相对于正北而言；
+	// speed – 速度，以 m/s 为单位。
+	// 不支持则返回 null
+	console.log(position);
+  // x.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+}
+function errorHandle(error)
+  {
+  	// console.log(error);
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      console.log("User denied the request for Geolocation.");
+      break;
+    case error.POSITION_UNAVAILABLE:
+      console.log("Location information is unavailable.");
+      break;
+    case error.TIMEOUT:
+      console.log("The request to get user location timed out.");
+      break;
+    case error.UNKNOWN_ERROR:
+      console.log("An unknown error occurred.");
+      break;
+    }
+  }
+
+// 距离计算公式
+ function toRadians(degree) { 
+    return this * Math.PI / 180; 
+ } 
+
+ function distance(latitude1, longitude1, latitude2, longitude2) { 
+    // R 是地球半径（KM）
+    var R = 6371; 
+
+    var deltaLatitude = toRadians(latitude2-latitude1); 
+    var deltaLongitude = toRadians(longitude2-longitude1); 
+    latitude1 = toRadians(latitude1); 
+    latitude2 = toRadians(latitude2); 
+
+    var a = Math.sin(deltaLatitude/2) * 
+            Math.sin(deltaLatitude/2) + 
+            Math.cos(latitude1) * 
+            Math.cos(latitude2) * 
+            Math.sin(deltaLongitude/2) * 
+            Math.sin(deltaLongitude/2); 
+
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; 
+    return d; 
+ }
+</script>
+</body>
+</html>
