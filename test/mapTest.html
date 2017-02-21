@@ -32,7 +32,8 @@
             var mk = new BMap.Marker(r.point);
             baiduMap.addOverlay(mk);
             baiduMap.panTo(r.point);
-            baiduMap.centerAndZoom(r.point,12);
+            var point = new BMap.Point(r.point);
+            baiduMap.centerAndZoom(point,12);
         }else {
             var codeMap = {
                 BMAP_STATUS_SUCCESS: '检索成功',
