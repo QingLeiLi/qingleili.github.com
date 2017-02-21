@@ -29,11 +29,9 @@
     baiduGeolocation.getCurrentPosition(function(r){
         console.log('百度地图定位成功:',r);
         if(this.getStatus() == BMAP_STATUS_SUCCESS){
-            var point = new BMap.Point(r.point);
-            baiduMap.centerAndZoom(point,12);
-            baiduMap.panTo(point);
-//            var mk = new BMap.Marker(r.point);
-//            baiduMap.addOverlay(mk);
+            var mk = new BMap.Marker(r.point);
+            baiduMap.addOverlay(mk);
+            baiduMap.panTo(r.point);
         }else {
             var codeMap = {
                 BMAP_STATUS_SUCCESS: '检索成功',
